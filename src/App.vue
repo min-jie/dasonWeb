@@ -35,6 +35,12 @@ const branches = [
   ['新莊分校', '國小、國中、高中', '02-2992-0107', '新北市新莊區中正路164號4樓'],
   ['永和分校', '國小、國中、高中', '02-2921-1586', '新北市永和區竹林路64號2樓'],
 ]
+const achievements = [
+  { value: '30＋', label: '年', description: '深耕雙北，持續精進' },
+  { value: '5', label: '大分校', description: '就近服務，交通便利' },
+  { value: '國小・國中・高中', label: '全階段教育', description: '陪伴每個關鍵學習階段', text: true },
+  { value: '千百', label: '學子信賴', description: '用專業與陪伴成就未來' },
+]
 </script>
 
 <template>
@@ -70,6 +76,20 @@ const branches = [
       </article>
       <div class="slider-dots" aria-hidden="true">
         <span></span><span></span><span class="active"></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="achievement-wall" aria-labelledby="achievement-title">
+      <div class="achievement-heading">
+        <p>THE DASON DIFFERENCE</p>
+        <h2 id="achievement-title">三十年深耕，數字見證信任</h2>
+      </div>
+      <div class="achievement-grid">
+        <article v-for="achievement in achievements" :key="achievement.label" class="achievement-card">
+          <p class="achievement-value" :class="{ 'is-text': achievement.text }">{{ achievement.value }}</p>
+          <h3>{{ achievement.label }}</h3>
+          <p>{{ achievement.description }}</p>
+        </article>
       </div>
     </section>
 
