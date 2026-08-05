@@ -5,6 +5,7 @@ import carousel2 from './assets/carousel_2.jpg'
 import carousel3 from './assets/carousel_3.jpg'
 import carousel4 from './assets/carousel_4.jpg'
 import carousel5 from './assets/carousel_5.jpg'
+import educationStoryImage from './assets/education-story.jpg'
 const heroSlides = [
   {
     title: '課堂實況',
@@ -42,6 +43,69 @@ const news = [
   { type: '生活', date: '2026.01.23', title: '寒假收假提醒', color: 'pink' },
   { type: '全部', date: '2026.01.23', title: '「在大昇，沒有一個孩子會被落下」', color: 'teal' },
   { type: '國小', date: '2026.01.23', title: '寒假徵收假通知', color: 'gold' },
+]
+
+const teachingMethods = [
+  {
+    title: '螞蟻式教學',
+    description: '一步一腳印，絕不罷休。學習沒有捷徑，大昇老師陪著每位學生紮紮實實地把每個觀念走過一遍，確保基礎穩固，再逐步提升。',
+  },
+  {
+    title: '情境式教學',
+    description: '配合生活，融入教學。將抽象的學科知識與實際生活經驗連結，讓學生在理解「為什麼要學」的過程中，自然記住「怎麼學」。',
+  },
+  {
+    title: '啟發式教學',
+    description: '摒棄填鴨，因材施教。大昇課堂以引導代替灌輸，根據每位學生的程度與特質，啟發其主動思考，讓理解真正發生。',
+  },
+  {
+    title: '宏觀式教學',
+    description: '廣彙考題，宏觀視野。大昇老師持續研析各類考題，幫助學生跳脫單題思維，培養從全局角度看待考試的能力與自信。',
+  },
+  {
+    title: '地毯式教學',
+    description: '精編教材，應戰會考。以系統化自編教材為核心，地毯式掃描各單元考點，確保學生在考前不留死角、全面備戰。',
+  },
+  {
+    title: '超前式教學',
+    description: '進度超前，靈活解題。比學校進度提前一步，讓學生在課堂上已對內容有所掌握，從容應對，在考試中靈活運用所學。',
+  },
+]
+
+const testimonials = [
+  {
+    name: '劉洋睿',
+    quote: '孩子在大昇高中部上英文、數學、理化後，成績進步非常明顯！英文從不敢開口到能掌握文法與閱讀技巧；數學老師講解清楚，題型整理很有系統；理化則把觀念講到懂，搭配大量練習，段考與模考分數都穩定提升。老師們負責又會主動回報學習狀況，家長很放心，真心推薦！',
+  },
+  {
+    name: 'Wen Hung Huang',
+    quote: '孩子小六上大昇補數學才半年，就考上全台北錄取率最低的靜心國中部（龍年錄取率比平時更低）。最後去唸公立國中，數學第一次段考還是滿分。老師也很認真幫助孩子！',
+  },
+  {
+    name: '黃O誠媽媽',
+    quote: '幫孩子找了一輪，最後選大昇，補了這陣子真心覺得值得給五顆星。環境乾淨明亮，櫃檯老師也都客氣，孩子說上課不會想睡，這點很難得。這次段考進步了快二十分，雖然不是榜首，但他自己願意唸書了，光這點就夠了。謝謝老師的耐心。',
+  },
+]
+
+const courseStages = [
+  {
+    level: '國小階段',
+    english: 'ELEMENTARY',
+    description: '為孩子建立學科基礎概念，培養良好學習習慣，從小奠定競爭優勢。',
+    courses: ['數學班', '英文班', '升私中數學班', '資優數學班'],
+  },
+  {
+    level: '國中階段',
+    english: 'JUNIOR HIGH',
+    description: '掌握會考關鍵得分策略，全科穩固提升，助攻理想高中。',
+    courses: ['六升七暑期先修班', '數資班', '數A班', '數私校班', '英資班', '英A班', '國文班', '生物班', '理化班', '九年級會考A++必勝班'],
+  },
+  {
+    level: '高中階段',
+    english: 'SENIOR HIGH',
+    description: '精準對接學測核心考點，強化邏輯思維與解題能力。',
+    courses: ['數學班', '英文班', '物理班', '化學班'],
+  },
 ]
 
 const features = [
@@ -126,19 +190,19 @@ const achievements = [
 
     <section id="news" class="section news-section" aria-labelledby="news-title">
       <div class="section-heading compact">
-        <h2 id="news-title">最新消息</h2>
-        <p>New Topic</p>
+        <h2 id="news-title">大昇六大教學特色</h2>
+        <p>Teaching features</p>
       </div>
       <div class="news-scroller">
-        <article v-for="item in news" :key="item.title" class="news-card" :class="item.color">
-          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=700&q=85" alt="學生書寫作業" />
+        <article v-for="(item, index) in teachingMethods" :key="item.title" class="news-card teaching-card">
+          <span class="teaching-number">{{ String(index + 1).padStart(2, '0') }}</span>
           <div class="news-body">
             <div class="news-tags">
-              <span>{{ item.type }}</span>
               <small>生活</small>
             </div>
             <time>{{ item.date }}</time>
             <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
             <a href="#news" aria-label="查看消息">→</a>
           </div>
         </article>
@@ -148,25 +212,48 @@ const achievements = [
       </div>
     </section>
 
-    <section id="features" class="feature-band" aria-labelledby="feature-title">
-      <div class="section-heading light">
-        <h2 id="feature-title">教學特色區塊</h2>
-        <p>Class feature</p>
-        <strong>針對學生，大昇開發出一套獨特的教育系統……</strong>
+    <section id="features" class="testimonials-section section" aria-labelledby="testimonial-title">
+      <div class="section-heading testimonials-heading">
+        <p>FAMILY TESTIMONIALS</p>
+        <h2 id="testimonial-title">他們說的，比我們說的更真實</h2>
+        <strong>每一份肯定，都是我們持續陪伴孩子前進的力量。</strong>
       </div>
-      <div class="feature-grid">
-        <article v-for="feature in features" :key="feature[2]" class="feature-card">
-          <span class="feature-icon" :class="feature[0]"></span>
-          <h3>{{ feature[1] }}</h3>
-          <p>{{ feature[2] }}</p>
+      <div class="testimonials-grid">
+        <article v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial-card">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <div class="testimonial-stars" aria-label="五星評價">★★★★★</div>
+          <blockquote>{{ testimonial.quote }}</blockquote>
+          <footer>{{ testimonial.name }}</footer>
+        </article>
+      </div>
+      <a class="testimonials-more" href="#features">
+        查看更多家長推薦 <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section class="section courses-section" aria-labelledby="courses-title">
+      <div class="section-heading courses-heading">
+        <p>COURSE PROGRAMS</p>
+        <h2 id="courses-title">全階段專業課程，陪伴每個學習里程碑</h2>
+      </div>
+      <div class="course-stage-grid">
+        <article v-for="stage in courseStages" :key="stage.level" class="course-stage-card">
+          <p>{{ stage.english }}</p>
+          <h3>{{ stage.level }}</h3>
+          <span class="course-divider" aria-hidden="true"></span>
+          <p class="course-description">{{ stage.description }}</p>
+          <ul>
+            <li v-for="course in stage.courses" :key="course">{{ course }}</li>
+          </ul>
         </article>
       </div>
     </section>
 
     <section id="branches" class="section branches-section" aria-labelledby="branch-title">
       <div class="section-heading compact lined">
-        <h2 id="branch-title">課程資訊</h2>
-        <p>Class information</p>
+        <h2 id="branch-title">分校資訊</h2>
+        <p>就近找到你的大昇</p>
+        <strong>大昇在雙北設有五所分校，交通便利、環境優質。無論您在哪，都有一間大昇在您身旁</strong>
       </div>
       <div class="branch-grid">
         <article v-for="branch in branches" :key="branch[0]" class="branch-card">
