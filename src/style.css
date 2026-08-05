@@ -881,6 +881,15 @@ ul {
   padding-bottom: 24px;
 }
 
+.section-heading.lined h2 {
+  font-size: clamp(28px, 3vw, 36px);
+}
+
+.section-heading.lined p {
+  margin-top: 7px;
+  font-size: 15px;
+}
+
 .section-heading.lined::after {
   position: absolute;
   right: 0;
@@ -889,6 +898,15 @@ ul {
   height: 2px;
   background: #9bd295;
   content: '';
+}
+
+.section-heading.lined strong {
+  display: block;
+  margin: 18px auto 0;
+  color: #536158;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
 }
 
 .branch-grid {
@@ -900,6 +918,9 @@ ul {
 }
 
 .branch-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -908,6 +929,7 @@ ul {
 }
 
 .branch-content {
+  flex: 1;
   min-height: 174px;
   padding: 28px 40px 22px;
 }

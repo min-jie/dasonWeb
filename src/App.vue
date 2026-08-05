@@ -228,8 +228,9 @@ const achievements = [
 
     <section id="branches" class="section branches-section" aria-labelledby="branch-title">
       <div class="section-heading compact lined">
-        <h2 id="branch-title">課程資訊</h2>
-        <p>Class information</p>
+        <h2 id="branch-title">分校資訊</h2>
+        <p>就近找到你的大昇</p>
+        <strong>大昇在雙北設有五所分校，交通便利、環境優質。無論您在哪，都有一間大昇在您身旁</strong>
       </div>
       <div class="branch-grid">
         <article v-for="branch in branches" :key="branch[0]" class="branch-card">
