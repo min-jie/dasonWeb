@@ -1,18 +1,41 @@
 <script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import carousel1 from './assets/carousel_1.jpg'
+import carousel2 from './assets/carousel_2.jpg'
+import carousel3 from './assets/carousel_3.jpg'
+import carousel4 from './assets/carousel_4.jpg'
+import carousel5 from './assets/carousel_5.jpg'
 const heroSlides = [
   {
     title: '課堂實況',
-    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85',
+    image: carousel1,
   },
   {
     title: '戶外活動',
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85',
+    image: carousel2,
   },
   {
     title: '專注學習',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85',
+    image: carousel3,
   },
+  { title: '大昇教學現場', image: carousel4 },
+  { title: '大昇專注學習', image: carousel5 },
 ]
+
+const activeSlide = ref(0)
+let carouselTimer
+
+function goToSlide(index) {
+  activeSlide.value = index
+}
+
+onMounted(() => {
+  carouselTimer = window.setInterval(() => {
+    activeSlide.value = (activeSlide.value + 1) % heroSlides.length
+  }, 5000)
+})
+
+onBeforeUnmount(() => window.clearInterval(carouselTimer))
 
 const news = [
   { type: '國中', date: '2026.01.23', title: '模擬考', color: 'blue' },
@@ -70,12 +93,20 @@ const achievements = [
         v-for="(slide, index) in heroSlides"
         :key="slide.title"
         class="photo-card"
-        :class="{ 'is-active': index === 0 }"
+        :class="{ 'is-active': index === activeSlide }"
       >
         <img :src="slide.image" :alt="slide.title" />
       </article>
-      <div class="slider-dots" aria-hidden="true">
-        <span></span><span></span><span class="active"></span><span></span><span></span>
+      <div class="slider-dots" aria-label="校園照片輪播">
+        <button
+          v-for="(slide, index) in heroSlides"
+          :key="`dot-${slide.title}`"
+          type="button"
+          :class="{ active: index === activeSlide }"
+          :aria-label="`顯示第 ${index + 1} 張照片`"
+          :aria-current="index === activeSlide ? 'true' : undefined"
+          @click="goToSlide(index)"
+        ></button>
       </div>
     </section>
 

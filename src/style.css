@@ -155,21 +155,26 @@ ul {
 
 .photo-rail {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(190px, 0.8fr) minmax(420px, 2.35fr) minmax(190px, 0.8fr);
-  gap: clamp(28px, 4vw, 52px);
-  align-items: center;
-  width: min(1290px, 128vw);
-  margin: 22px 50% 0;
-  transform: translateX(-50%);
-  padding-bottom: 54px;
+  width: min(1200px, calc(100% - 44px));
+  height: 474px;
+  margin: 22px auto 0;
 }
 
 .photo-card {
+  position: absolute;
+  inset: 0 0 auto;
   height: 420px;
   overflow: hidden;
   border-radius: 12px;
   background: #d9ead5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 520ms ease;
+}
+
+.photo-card.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .photo-card img {
@@ -191,21 +196,29 @@ ul {
   left: 0;
 }
 
-.slider-dots span,
+.slider-dots button,
 .small-dots span {
   display: block;
+  padding: 0;
+  border: 0;
   border-radius: 999px;
   background: #eadfbd;
+  cursor: pointer;
 }
 
-.slider-dots span {
+.slider-dots button {
   width: 20px;
   height: 5px;
 }
 
-.slider-dots .active {
+.slider-dots button.active {
   width: 34px;
   background: #8dcc88;
+}
+
+.slider-dots button:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 4px;
 }
 
 .achievement-wall {
@@ -756,8 +769,8 @@ ul {
   }
 
   .photo-rail {
-    grid-template-columns: 1fr;
     width: min(720px, calc(100% - 44px));
+    height: 414px;
   }
 
   .photo-card {
@@ -765,7 +778,7 @@ ul {
   }
 
   .photo-card:not(.is-active) {
-    display: none;
+    display: block;
   }
 
   .achievement-grid {
@@ -817,6 +830,10 @@ ul {
 
   .photo-card {
     height: 260px;
+  }
+
+  .photo-rail {
+    height: 314px;
   }
 
   .achievement-wall {
