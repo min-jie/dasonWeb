@@ -124,6 +124,20 @@ const achievements = [
       </div>
     </section>
 
+    <section class="achievement-wall" aria-labelledby="achievement-title">
+      <div class="achievement-heading">
+        <p>THE DASON DIFFERENCE</p>
+        <h2 id="achievement-title">三十年深耕，數字見證信任</h2>
+      </div>
+      <div class="achievement-grid">
+        <article v-for="achievement in achievements" :key="achievement.label" class="achievement-card">
+          <p class="achievement-value" :class="{ 'is-text': achievement.text }">{{ achievement.value }}</p>
+          <h3>{{ achievement.label }}</h3>
+          <p>{{ achievement.description }}</p>
+        </article>
+      </div>
+    </section>
+
     <section id="news" class="section news-section" aria-labelledby="news-title">
       <div class="section-heading compact">
         <h2 id="news-title">最新消息</h2>
