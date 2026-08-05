@@ -5,6 +5,7 @@ import carousel2 from './assets/carousel_2.jpg'
 import carousel3 from './assets/carousel_3.jpg'
 import carousel4 from './assets/carousel_4.jpg'
 import carousel5 from './assets/carousel_5.jpg'
+import educationStoryImage from './assets/education-story.jpg'
 const heroSlides = [
   {
     title: '課堂實況',
@@ -42,6 +43,33 @@ const news = [
   { type: '生活', date: '2026.01.23', title: '寒假收假提醒', color: 'pink' },
   { type: '全部', date: '2026.01.23', title: '「在大昇，沒有一個孩子會被落下」', color: 'teal' },
   { type: '國小', date: '2026.01.23', title: '寒假徵收假通知', color: 'gold' },
+]
+
+const teachingMethods = [
+  {
+    title: '螞蟻式教學',
+    description: '一步一腳印，絕不罷休。學習沒有捷徑，大昇老師陪著每位學生紮紮實實地把每個觀念走過一遍，確保基礎穩固，再逐步提升。',
+  },
+  {
+    title: '情境式教學',
+    description: '配合生活，融入教學。將抽象的學科知識與實際生活經驗連結，讓學生在理解「為什麼要學」的過程中，自然記住「怎麼學」。',
+  },
+  {
+    title: '啟發式教學',
+    description: '摒棄填鴨，因材施教。大昇課堂以引導代替灌輸，根據每位學生的程度與特質，啟發其主動思考，讓理解真正發生。',
+  },
+  {
+    title: '宏觀式教學',
+    description: '廣彙考題，宏觀視野。大昇老師持續研析各類考題，幫助學生跳脫單題思維，培養從全局角度看待考試的能力與自信。',
+  },
+  {
+    title: '地毯式教學',
+    description: '精編教材，應戰會考。以系統化自編教材為核心，地毯式掃描各單元考點，確保學生在考前不留死角、全面備戰。',
+  },
+  {
+    title: '超前式教學',
+    description: '進度超前，靈活解題。比學校進度提前一步，讓學生在課堂上已對內容有所掌握，從容應對，在考試中靈活運用所學。',
+  },
 ]
 
 const features = [
@@ -124,21 +152,37 @@ const achievements = [
       </div>
     </section>
 
+    <section class="section story-section" aria-labelledby="story-title">
+      <div class="story-layout">
+        <div class="story-media">
+          <img :src="educationStoryImage" alt="老師在課堂中陪伴學生學習" />
+          <span class="story-play" aria-hidden="true"></span>
+          <span class="story-media-label">DASON EDUCATION STORY</span>
+        </div>
+        <div class="story-content">
+          <p class="story-eyebrow">OUR EDUCATION STORY</p>
+          <h2 id="story-title">看見孩子的可能——大昇的教育故事</h2>
+          <p>三十年來，大昇始終秉持「做教育」的精神。我們相信每一個孩子都有無限潛力，也相信真正的教育，是在課業之外還能陪伴孩子成為更好的人。這支影片，帶你走進大昇的日常。</p>
+          <span class="story-rule" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
     <section id="news" class="section news-section" aria-labelledby="news-title">
       <div class="section-heading compact">
-        <h2 id="news-title">最新消息</h2>
-        <p>New Topic</p>
+        <h2 id="news-title">大昇六大教學特色</h2>
+        <p>Teaching features</p>
       </div>
       <div class="news-scroller">
-        <article v-for="item in news" :key="item.title" class="news-card" :class="item.color">
-          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=700&q=85" alt="學生書寫作業" />
+        <article v-for="(item, index) in teachingMethods" :key="item.title" class="news-card teaching-card">
+          <span class="teaching-number">{{ String(index + 1).padStart(2, '0') }}</span>
           <div class="news-body">
             <div class="news-tags">
-              <span>{{ item.type }}</span>
               <small>生活</small>
             </div>
             <time>{{ item.date }}</time>
             <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
             <a href="#news" aria-label="查看消息">→</a>
           </div>
         </article>
