@@ -87,6 +87,27 @@ const testimonials = [
   },
 ]
 
+const courseStages = [
+  {
+    level: '國小階段',
+    english: 'ELEMENTARY',
+    description: '為孩子建立學科基礎概念，培養良好學習習慣，從小奠定競爭優勢。',
+    courses: ['數學班', '英文班', '升私中數學班', '資優數學班'],
+  },
+  {
+    level: '國中階段',
+    english: 'JUNIOR HIGH',
+    description: '掌握會考關鍵得分策略，全科穩固提升，助攻理想高中。',
+    courses: ['六升七暑期先修班', '數資班', '數A班', '數私校班', '英資班', '英A班', '國文班', '生物班', '理化班', '九年級會考A++必勝班'],
+  },
+  {
+    level: '高中階段',
+    english: 'SENIOR HIGH',
+    description: '精準對接學測核心考點，強化邏輯思維與解題能力。',
+    courses: ['數學班', '英文班', '物理班', '化學班'],
+  },
+]
+
 const features = [
   ['medal', '養成正確生活態度和讀書習慣', '升學的路上，讀書有時並非理想而輕鬆得到回報，但養成正確的生活態度與讀書習慣往往能讓學習更有效。'],
   ['swirl', '養成正確生活態度和讀書習慣', '升學的路上，大昇不只教課本子知識，也會陪孩子知道如何安排生活與面對挑戰。'],
@@ -224,6 +245,24 @@ const achievements = [
       <a class="testimonials-more" href="#features">
         查看更多家長推薦 <span aria-hidden="true">→</span>
       </a>
+    </section>
+
+    <section class="section courses-section" aria-labelledby="courses-title">
+      <div class="section-heading courses-heading">
+        <p>COURSE PROGRAMS</p>
+        <h2 id="courses-title">全階段專業課程，陪伴每個學習里程碑</h2>
+      </div>
+      <div class="course-stage-grid">
+        <article v-for="stage in courseStages" :key="stage.level" class="course-stage-card">
+          <p>{{ stage.english }}</p>
+          <h3>{{ stage.level }}</h3>
+          <span class="course-divider" aria-hidden="true"></span>
+          <p class="course-description">{{ stage.description }}</p>
+          <ul>
+            <li v-for="course in stage.courses" :key="course">{{ course }}</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section id="branches" class="section branches-section" aria-labelledby="branch-title">
