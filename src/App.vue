@@ -72,6 +72,21 @@ const teachingMethods = [
   },
 ]
 
+const testimonials = [
+  {
+    name: '劉洋睿',
+    quote: '孩子在大昇高中部上英文、數學、理化後，成績進步非常明顯！英文從不敢開口到能掌握文法與閱讀技巧；數學老師講解清楚，題型整理很有系統；理化則把觀念講到懂，搭配大量練習，段考與模考分數都穩定提升。老師們負責又會主動回報學習狀況，家長很放心，真心推薦！',
+  },
+  {
+    name: 'Wen Hung Huang',
+    quote: '孩子小六上大昇補數學才半年，就考上全台北錄取率最低的靜心國中部（龍年錄取率比平時更低）。最後去唸公立國中，數學第一次段考還是滿分。老師也很認真幫助孩子！',
+  },
+  {
+    name: '黃O誠媽媽',
+    quote: '幫孩子找了一輪，最後選大昇，補了這陣子真心覺得值得給五顆星。環境乾淨明亮，櫃檯老師也都客氣，孩子說上課不會想睡，這點很難得。這次段考進步了快二十分，雖然不是榜首，但他自己願意唸書了，光這點就夠了。謝謝老師的耐心。',
+  },
+]
+
 const features = [
   ['medal', '養成正確生活態度和讀書習慣', '升學的路上，讀書有時並非理想而輕鬆得到回報，但養成正確的生活態度與讀書習慣往往能讓學習更有效。'],
   ['swirl', '養成正確生活態度和讀書習慣', '升學的路上，大昇不只教課本子知識，也會陪孩子知道如何安排生活與面對挑戰。'],
@@ -192,19 +207,23 @@ const achievements = [
       </div>
     </section>
 
-    <section id="features" class="feature-band" aria-labelledby="feature-title">
-      <div class="section-heading light">
-        <h2 id="feature-title">教學特色區塊</h2>
-        <p>Class feature</p>
-        <strong>針對學生，大昇開發出一套獨特的教育系統……</strong>
+    <section id="features" class="testimonials-section section" aria-labelledby="testimonial-title">
+      <div class="section-heading testimonials-heading">
+        <p>FAMILY TESTIMONIALS</p>
+        <h2 id="testimonial-title">他們說的，比我們說的更真實</h2>
+        <strong>每一份肯定，都是我們持續陪伴孩子前進的力量。</strong>
       </div>
-      <div class="feature-grid">
-        <article v-for="feature in features" :key="feature[2]" class="feature-card">
-          <span class="feature-icon" :class="feature[0]"></span>
-          <h3>{{ feature[1] }}</h3>
-          <p>{{ feature[2] }}</p>
+      <div class="testimonials-grid">
+        <article v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial-card">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <div class="testimonial-stars" aria-label="五星評價">★★★★★</div>
+          <blockquote>{{ testimonial.quote }}</blockquote>
+          <footer>{{ testimonial.name }}</footer>
         </article>
       </div>
+      <a class="testimonials-more" href="#features">
+        查看更多家長推薦 <span aria-hidden="true">→</span>
+      </a>
     </section>
 
     <section id="branches" class="section branches-section" aria-labelledby="branch-title">
