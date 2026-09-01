@@ -457,7 +457,7 @@ ul {
 }
 
 .news-section {
-  padding-top: 28px;
+  padding-top: 72px;
   background: #99cd93;
 }
 
@@ -467,6 +467,10 @@ ul {
 
 .news-section .section-heading p {
   color: #ffffff;
+}
+
+.news-section .section-heading h2 {
+  font-size: clamp(28px, 3vw, 38px);
 }
 
 .news-scroller {
@@ -513,7 +517,7 @@ ul {
   margin: 24px 0 0 22px;
   border-radius: 50%;
   color: #ffffff;
-  background: var(--green-deep);
+  background: #2f91b4;
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -521,12 +525,12 @@ ul {
 
 .teaching-card:nth-child(2) .teaching-number,
 .teaching-card:nth-child(5) .teaching-number {
-  background: var(--blue);
+  background: var(--pink);
 }
 
 .teaching-card:nth-child(3) .teaching-number,
 .teaching-card:nth-child(6) .teaching-number {
-  background: #d58b5d;
+  background: #20be7c;
 }
 
 .teaching-card .news-body {
@@ -554,9 +558,9 @@ ul {
 .teaching-card .news-body > p {
   margin-top: 12px;
   color: #536158;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
 .news-card img {
