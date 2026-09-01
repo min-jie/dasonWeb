@@ -881,7 +881,13 @@ ul {
 .courses-section {
   padding-top: 90px;
   padding-bottom: 90px;
-  background: #eaf6e5;
+  background-color: #eef8ec;
+  background-image:
+    linear-gradient(rgba(87, 166, 101, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 166, 101, 0.16) 1px, transparent 1px),
+    linear-gradient(rgba(87, 166, 101, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 166, 101, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 8px 8px, 8px 8px;
 }
 
 .courses-heading > p {
@@ -957,9 +963,10 @@ ul {
 
 .course-stage-card li {
   padding: 6px 10px;
+  border: 1px solid #a8d8b3;
   border-radius: 999px;
-  color: #376d3a;
-  background: #edf7e9;
+  color: #176b46;
+  background: #d8f1df;
   font-size: 12px;
   font-weight: 800;
   line-height: 1.35;
