@@ -44,7 +44,7 @@ onBeforeUnmount(() => window.clearInterval(carouselTimer))
 </script>
 
 <template>
-  <main id="top">
+  <main id="top" class="home-page">
     <section class="photo-rail" aria-label="大昇校園照片"><article v-for="(slide, index) in heroSlides" :key="slide.title" class="photo-card" :class="{ 'is-active': index === activeSlide }"><img :src="slide.image" :alt="slide.title" /></article><div class="slider-dots" aria-label="校園照片輪播"><button v-for="(slide, index) in heroSlides" :key="slide.title" type="button" :class="{ active: index === activeSlide }" :aria-label="`顯示第 ${index + 1} 張照片`" @click="goToSlide(index)"></button></div></section>
     <section class="achievement-wall"><div class="achievement-heading"><p>THE DASON DIFFERENCE</p><h2>三十年深耕，數字見證信任</h2></div><div class="achievement-grid"><article class="achievement-card"><p class="achievement-value">30＋</p><h3>年</h3><p>深耕雙北，持續精進</p></article><article class="achievement-card"><p class="achievement-value">5</p><h3>大分校</h3><p>就近服務，交通便利</p></article><article class="achievement-card"><p class="achievement-value is-text">國小・國中・高中</p><h3>全階段教育</h3><p>陪伴每個關鍵學習階段</p></article><article class="achievement-card"><p class="achievement-value">千百</p><h3>學子信賴</h3><p>用專業與陪伴成就未來</p></article></div></section>
     <section class="section story-section"><div class="story-layout"><div class="story-media"><img :src="educationStoryImage" alt="老師在課堂中陪伴學生學習" /><span class="story-play"></span><span class="story-media-label">DASON EDUCATION STORY</span></div><div class="story-content"><p class="story-eyebrow">OUR EDUCATION STORY</p><h2>看見孩子的可能——大昇的教育故事</h2><p>三十年來，大昇始終秉持「做教育」的精神。我們相信每一個孩子都有無限潛力，也相信真正的教育，是在課業之外還能陪伴孩子成為更好的人。這支影片，帶你走進大昇的日常。</p><span class="story-rule"></span></div></div></section>

@@ -64,7 +64,7 @@ ul {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 248, 234, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
 }
 
@@ -132,11 +132,13 @@ ul {
 
 .nav-shell {
   justify-content: center;
-  gap: clamp(18px, 4vw, 66px);
-  min-height: 46px;
+  gap: clamp(10px, 2.4vw, 34px);
+  min-height: 58px;
   padding: 0 clamp(18px, 7vw, 136px);
   color: var(--green-deep);
-  background: var(--green-soft);
+  border-top: 1px solid #dcebd8;
+  border-bottom: 4px solid var(--green);
+  background: #ffffff;
   font-size: 14px;
   font-weight: 900;
 }
@@ -144,18 +146,34 @@ ul {
 .nav-shell a {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.nav-shell a:hover {
+  color: #ffffff;
+  background: #4ca858;
+  transform: translateY(-1px);
 }
 
 .nav-shell a.router-link-active:not(.home-link) {
   color: #ffffff;
+  background: var(--green-deep);
 }
 
 .home-link {
   justify-content: center;
-  width: 30px;
+  width: 38px;
+  padding: 0 !important;
   color: var(--green-deep);
   font-size: 21px;
+}
+
+.home-link.router-link-active {
+  color: #ffffff;
+  background: var(--green-deep);
 }
 
 .home-link svg {
@@ -1488,6 +1506,183 @@ ul {
 
 .about-grid-spacer {
   height: 92px;
+}
+
+/* Homepage: school-news inspired grid, outline and offset-card system */
+.home-page {
+  background-color: #fffdf7;
+  background-image: linear-gradient(rgba(73, 157, 91, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(73, 157, 91, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.home-page .photo-rail {
+  width: min(1160px, calc(100% - 44px));
+  height: 500px;
+  margin-top: 38px;
+}
+
+.home-page .photo-card {
+  height: 442px;
+  border: 2px solid #24743b;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 13px 14px 0 #9fd89a;
+}
+
+.home-page .photo-card img {
+  object-position: center;
+}
+
+.home-page .slider-dots {
+  bottom: 22px;
+}
+
+.home-page .slider-dots button {
+  height: 8px;
+  background: #d8ebd4;
+}
+
+.home-page .slider-dots button.active {
+  background: #24743b;
+}
+
+.home-page .achievement-wall {
+  border-top: 2px solid #174c2a;
+  border-bottom: 2px solid #174c2a;
+  background-color: #2d7c44;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(120deg, #174c2a, #4a9a57);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.home-page .story-section,
+.home-page .introduction-section {
+  position: relative;
+  background: rgba(255, 253, 247, 0.9);
+}
+
+.home-page .story-section::before,
+.home-page .introduction-section::after {
+  position: absolute;
+  z-index: 0;
+  width: 118px;
+  height: 118px;
+  border: 2px solid #20be7c;
+  border-radius: 50%;
+  content: '';
+}
+
+.home-page .story-section::before {
+  top: 34px;
+  left: -62px;
+}
+
+.home-page .introduction-section::after {
+  right: -60px;
+  bottom: 64px;
+  border-color: #3aa8da;
+}
+
+.home-page .story-layout,
+.home-page .introduction-layout {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .story-media {
+  border: 2px solid #24743b;
+  border-radius: 18px;
+  box-shadow: 12px 13px 0 #a7dfcb;
+}
+
+.home-page .story-play {
+  border-width: 2px;
+  background: #20a89c;
+}
+
+.home-page .introduction-image {
+  border: 2px solid #24743b;
+  border-radius: 18px;
+  box-shadow: 12px 13px 0 #b7dff0;
+}
+
+.home-page .literacy-grid article {
+  border: 1px solid rgba(36, 116, 59, 0.18);
+}
+
+.home-page .news-section {
+  position: relative;
+  border-block: 2px solid #24743b;
+  background-color: #99cd93;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.home-page .news-section .section-heading h2 {
+  color: #174c2a;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.45);
+}
+
+.home-page .teaching-card {
+  border: 2px solid #24743b;
+  box-shadow: 7px 8px 0 #5db75e;
+}
+
+.home-page .teaching-card:nth-child(2),
+.home-page .teaching-card:nth-child(5) {
+  box-shadow: 7px 8px 0 #f1b1c0;
+}
+
+.home-page .teaching-card:nth-child(3),
+.home-page .teaching-card:nth-child(6) {
+  box-shadow: 7px 8px 0 #a7dfcb;
+}
+
+.home-page .testimonials-section {
+  background-color: #fff8ea;
+  background-image: linear-gradient(rgba(58, 168, 218, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(58, 168, 218, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.home-page .testimonial-card {
+  border: 2px solid #24743b;
+  box-shadow: 7px 8px 0 #d6ebd1;
+}
+
+.home-page .testimonial-card:nth-child(2) {
+  box-shadow: 7px 8px 0 #b8dfeb;
+}
+
+.home-page .testimonial-card:nth-child(3) {
+  box-shadow: 7px 8px 0 #f3c4ce;
+}
+
+.home-page .courses-section {
+  border-block: 2px solid #24743b;
+}
+
+.home-page .course-stage-card {
+  border: 2px solid #3d9a50;
+  box-shadow: 7px 8px 0 #b9dfb5;
+}
+
+.home-page .course-stage-card:nth-child(2) {
+  box-shadow: 7px 8px 0 #b8dfeb;
+}
+
+.home-page .course-stage-card:nth-child(3) {
+  box-shadow: 7px 8px 0 #f2c8d0;
+}
+
+.home-page .branches-section {
+  background: rgba(255, 253, 247, 0.9);
+}
+
+.home-page .branch-card {
+  border: 2px solid #24743b;
+  box-shadow: 7px 8px 0 #b9dfb5;
+}
+
+.home-page .branch-card:nth-child(even) {
+  box-shadow: 7px 8px 0 #b8dfeb;
 }
 
 .teaching-style-card > span {
