@@ -1663,6 +1663,36 @@ ul {
   box-shadow: 7px 8px 0 #f3c4ce;
 }
 
+.home-page .testimonials-grid {
+  display: flex;
+  max-width: none;
+  margin: 44px -7vw 0;
+  padding: 0 7vw 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) transparent;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.home-page .testimonials-grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.home-page .testimonials-grid.is-dragging * {
+  pointer-events: none;
+}
+
+.home-page .testimonial-card {
+  width: min(360px, calc(100vw - 68px));
+  min-width: min(360px, calc(100vw - 68px));
+  min-height: 370px;
+  scroll-snap-align: start;
+}
+
 .home-page .courses-section {
   border-block: 2px solid #24743b;
 }

@@ -21,8 +21,14 @@ const teachingMethods = [
 ]
 const testimonials = [
   ['劉洋睿', '孩子在大昇高中部上英文、數學、理化後，成績進步非常明顯！英文從不敢開口到能掌握文法與閱讀技巧；數學老師講解清楚，題型整理很有系統；理化則把觀念講到懂，搭配大量練習，段考與模考分數都穩定提升。老師們負責又會主動回報學習狀況，家長很放心，真心推薦！'],
-  ['Wen Hung Huang', '孩子小六上大昇補數學才半年，就考上全台北錄取率最低的靜心國中部。最後去唸公立國中，數學第一次段考還是滿分。老師也很認真幫助孩子！'],
+  ['黃秉宥', '在這樣優秀的補習班，我的孩子真的進步很大，原本不是很好的成績，現在已是班排前3。'],
   ['黃O誠媽媽', '幫孩子找了一輪，最後選大昇，補了這陣子真心覺得值得給五顆星。環境乾淨明亮，孩子說上課不會想睡。這次段考進步了快二十分，他自己願意唸書了，光這點就夠了。謝謝老師的耐心。'],
+  ['許育維', '以前小學大概前三名，送去大昇以後在附中考了三次第一名了，問孩子怎麼進步那麼多，他說大昇抓題很準！讚！'],
+  ['Wen Hung Huang', '孩子小六上大昇補數學才半年，就考上全台北錄取率最低的靜心國中部（龍年錄取率比平時更低）。最後去唸公立國中，數學第一次段考還是滿分。老師也很認真幫助孩子！'],
+  ['Pedro Gardea', '一開始補數學英文而已，結果孩子每天吵著要去念書，做媽媽的被嚇到了，讀書風氣很不錯。'],
+  ['Rebecca Shen', '謝謝主任耐心教導我女兒的數學，孩子很喜歡主任的講課方式。還有，女兒說生物老師的上課也很活潑很有趣。真心推薦大昇！！'],
+  ['Peggy WU', '孩子升上小六後到大昇專科加強數學，老師教學認真又有耐心，讓孩子逐漸培養出對數學的興趣。這段時間不僅成績穩定進步，也更願意主動學習、分享解題思路，基礎打得更扎實，對未來升國中的銜接幫助很大，真心推薦大昇！'],
+  ['嫺', '老師用心關心孩子，無論是課業上、生活習慣，更重要還有青春期孩子的心態，值得信賴。'],
 ]
 const courseStages = [
   ['ELEMENTARY', '國小階段', '為孩子建立學科基礎概念，培養良好學習習慣，從小奠定競爭優勢。', ['數學班', '英文班', '升私中數學班', '資優數學班']],
@@ -37,8 +43,30 @@ const branches = [
   ['永和分校', '國小、國中、高中', '02-2921-1586', '新北市永和區竹林路64號2樓'],
 ]
 const activeSlide = ref(0)
+const testimonialScroller = ref(null)
 let carouselTimer
+let isDraggingTestimonials = false
+let testimonialStartX = 0
+let testimonialStartScrollLeft = 0
 const goToSlide = (index) => { activeSlide.value = index }
+function startTestimonialDrag(event) {
+  if (event.pointerType === 'mouse' && event.button !== 0) return
+  isDraggingTestimonials = true
+  testimonialStartX = event.clientX
+  testimonialStartScrollLeft = event.currentTarget.scrollLeft
+  event.currentTarget.setPointerCapture(event.pointerId)
+  event.currentTarget.classList.add('is-dragging')
+}
+function dragTestimonials(event) {
+  if (!isDraggingTestimonials) return
+  event.currentTarget.scrollLeft = testimonialStartScrollLeft - (event.clientX - testimonialStartX)
+}
+function stopTestimonialDrag(event) {
+  if (!isDraggingTestimonials) return
+  isDraggingTestimonials = false
+  event.currentTarget.classList.remove('is-dragging')
+  if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
+}
 onMounted(() => { carouselTimer = window.setInterval(() => { activeSlide.value = (activeSlide.value + 1) % heroSlides.length }, 5000) })
 onBeforeUnmount(() => window.clearInterval(carouselTimer))
 </script>
@@ -50,7 +78,7 @@ onBeforeUnmount(() => window.clearInterval(carouselTimer))
     <section class="section story-section"><div class="story-layout"><div class="story-media"><img :src="educationStoryImage" alt="老師在課堂中陪伴學生學習" /><span class="story-play"></span><span class="story-media-label">DASON EDUCATION STORY</span></div><div class="story-content"><p class="story-eyebrow">OUR EDUCATION STORY</p><h2>看見孩子的可能——大昇的教育故事</h2><p>三十年來，大昇始終秉持「做教育」的精神。我們相信每一個孩子都有無限潛力，也相信真正的教育，是在課業之外還能陪伴孩子成為更好的人。這支影片，帶你走進大昇的日常。</p><span class="story-rule"></span></div></div></section>
     <section class="section introduction-section" aria-labelledby="introduction-title"><div class="introduction-layout"><div class="introduction-content"><p class="introduction-eyebrow">ABOUT DASON</p><h2 id="introduction-title">培養孩子的生涯素養，<br />讓孩子擁有有力的翅膀</h2><p>現代社會競爭激烈——高學歷普及、人工智慧崛起、產業快速變動，孩子的生涯發展面臨比以往更大的挑戰。父母時時擔心：我是否為孩子做得夠多？</p><p>大昇補習班自創立以來，培育了無數學生考上心目中的理想學校。我們始終相信，真正的教育不只在於成績，更在於幫助孩子從小建立三個面向的生涯素養：</p><div class="literacy-grid"><article><strong>知識</strong><span>拓展生活經驗，讓孩子知己知彼</span></article><article><strong>技能</strong><span>在日常抉擇與問題解決中培養生涯發展能力</span></article><article><strong>態度</strong><span>啟發孩子關注生涯、擁有追求目標的自信</span></article></div><p>在大昇，您可以看到一群充滿教育熱忱且認真負責的老師。我們不只在課業上給予最專業有效的幫助，更注重品行教育，在孩子最重要的青少年時期，給予最多的陪伴、支持與關懷——不只讓孩子在課業上獲得成就感，更讓家長在孩子成長過程中多了一份安全感。</p></div><figure class="introduction-image"><img :src="introductionImage" alt="大昇老師與學生合照" /><figcaption>在大昇，陪伴孩子自信成長。</figcaption></figure></div></section>
     <section class="section news-section"><div class="section-heading compact"><h2>大昇六大教學特色</h2><p>Teaching features</p></div><div class="news-scroller"><article v-for="(item, index) in teachingMethods" :key="item[0]" class="news-card teaching-card"><span class="teaching-number">{{ String(index + 1).padStart(2, '0') }}</span><div class="news-body"><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></div></article></div></section>
-    <section class="testimonials-section section"><div class="section-heading testimonials-heading"><p>FAMILY TESTIMONIALS</p><h2>他們說的，比我們說的更真實</h2><strong>每一份肯定，都是我們持續陪伴孩子前進的力量。</strong></div><div class="testimonials-grid"><article v-for="item in testimonials" :key="item[0]" class="testimonial-card"><span class="quote-mark">“</span><div class="testimonial-stars">★★★★★</div><blockquote>{{ item[1] }}</blockquote><footer>{{ item[0] }}</footer></article></div><RouterLink class="testimonials-more" to="/students">查看更多家長推薦 <span>→</span></RouterLink></section>
+    <section class="testimonials-section section"><div class="section-heading testimonials-heading"><p>FAMILY TESTIMONIALS</p><h2>他們說的，比我們說的更真實</h2><strong>每一份肯定，都是我們持續陪伴孩子前進的力量。</strong></div><div ref="testimonialScroller" class="testimonials-grid" aria-label="家長真實推薦，可按住左右拖曳" @pointerdown="startTestimonialDrag" @pointermove="dragTestimonials" @pointerup="stopTestimonialDrag" @pointercancel="stopTestimonialDrag" @dragstart.prevent><article v-for="item in testimonials" :key="item[0]" class="testimonial-card"><span class="quote-mark">“</span><div class="testimonial-stars">★★★★★</div><blockquote>{{ item[1] }}</blockquote><footer>{{ item[0] }}</footer></article></div></section>
     <section class="section courses-section"><div class="section-heading courses-heading"><p>COURSE PROGRAMS</p><h2>全階段專業課程，陪伴每個學習里程碑</h2></div><div class="course-stage-grid"><article v-for="stage in courseStages" :key="stage[1]" class="course-stage-card"><p>{{ stage[0] }}</p><h3>{{ stage[1] }}</h3><span class="course-divider"></span><p class="course-description">{{ stage[2] }}</p><ul><li v-for="course in stage[3]" :key="course">{{ course }}</li></ul></article></div></section>
     <section class="section branches-section"><div class="section-heading compact lined"><h2>分校資訊</h2><p>就近找到你的大昇</p><strong>大昇在雙北設有五所分校，交通便利、環境優質。無論您在哪，都有一間大昇在您身旁。</strong></div><div class="branch-grid"><article v-for="branch in branches" :key="branch[0]" class="branch-card"><div class="branch-content"><h3>{{ branch[0] }}</h3><ul><li><span>●</span>{{ branch[1] }}</li><li><span>●</span>{{ branch[2] }}</li><li><span>●</span>{{ branch[3] }}</li></ul></div><a :href="`tel:${branch[2].replaceAll('-', '')}`">前往課程 課程資訊 <span>›</span></a></article></div></section>
   </main>
