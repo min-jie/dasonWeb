@@ -141,7 +141,11 @@ const achievements = [
       <a class="line-button" href="tel:0226310572" aria-label="立即諮詢">預約諮詢</a>
     </div>
     <nav class="nav-shell" aria-label="主要導覽">
-      <a class="home-link" href="#top" aria-label="首頁">⌂</a>
+      <a class="home-link" href="#top" aria-label="首頁">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M12 2.8 2.9 10v11.1h6.3v-6.6h5.6v6.6h6.3V10L12 2.8Z" />
+        </svg>
+      </a>
       <a href="#about">關於大昇</a>
       <a href="#branches">分校資訊</a>
       <a href="#features">專業課程</a>
