@@ -147,6 +147,10 @@ ul {
   min-height: 30px;
 }
 
+.nav-shell a.router-link-active:not(.home-link) {
+  color: #ffffff;
+}
+
 .home-link {
   justify-content: center;
   width: 30px;
@@ -1176,6 +1180,40 @@ ul {
   text-align: center;
   font-size: 12px;
   font-weight: 700;
+}
+
+.page-main {
+  min-height: 58vh;
+}
+
+.page-hero {
+  display: grid;
+  min-height: 440px;
+  place-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #eaf6e5, #fff8ea);
+}
+
+.page-hero p {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.page-hero h1 {
+  margin-top: 14px;
+  color: var(--green-deep);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+}
+
+.page-hero strong {
+  max-width: 580px;
+  margin-top: 20px;
+  color: #536158;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 @media (max-width: 1080px) {

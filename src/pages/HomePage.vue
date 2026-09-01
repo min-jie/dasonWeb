@@ -1,0 +1,56 @@
+<script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import carousel1 from '../assets/carousel_1.jpg'
+import carousel2 from '../assets/carousel_2.jpg'
+import carousel3 from '../assets/carousel_3.jpg'
+import carousel4 from '../assets/carousel_4.jpg'
+import carousel5 from '../assets/carousel_5.jpg'
+import educationStoryImage from '../assets/education-story.jpg'
+
+const heroSlides = [
+  { title: '課堂實況', image: carousel1 }, { title: '大昇學習日常', image: carousel2 }, { title: '校園活動', image: carousel3 }, { title: '教學現場', image: carousel4 }, { title: '專注學習', image: carousel5 },
+]
+const teachingMethods = [
+  ['螞蟻式教學', '一步一腳印，絕不罷休。學習沒有捷徑，大昇老師陪著每位學生紮紮實實地把每個觀念走過一遍，確保基礎穩固，再逐步提升。'],
+  ['情境式教學', '配合生活，融入教學。將抽象的學科知識與實際生活經驗連結，讓學生在理解「為什麼要學」的過程中，自然記住「怎麼學」。'],
+  ['啟發式教學', '摒棄填鴨，因材施教。大昇課堂以引導代替灌輸，根據每位學生的程度與特質，啟發其主動思考，讓理解真正發生。'],
+  ['宏觀式教學', '廣彙考題，宏觀視野。大昇老師持續研析各類考題，幫助學生跳脫單題思維，培養從全局角度看待考試的能力與自信。'],
+  ['地毯式教學', '精編教材，應戰會考。以系統化自編教材為核心，地毯式掃描各單元考點，確保學生在考前不留死角、全面備戰。'],
+  ['超前式教學', '進度超前，靈活解題。比學校進度提前一步，讓學生在課堂上已對內容有所掌握，從容應對，在考試中靈活運用所學。'],
+]
+const testimonials = [
+  ['劉洋睿', '孩子在大昇高中部上英文、數學、理化後，成績進步非常明顯！英文從不敢開口到能掌握文法與閱讀技巧；數學老師講解清楚，題型整理很有系統；理化則把觀念講到懂，搭配大量練習，段考與模考分數都穩定提升。老師們負責又會主動回報學習狀況，家長很放心，真心推薦！'],
+  ['Wen Hung Huang', '孩子小六上大昇補數學才半年，就考上全台北錄取率最低的靜心國中部。最後去唸公立國中，數學第一次段考還是滿分。老師也很認真幫助孩子！'],
+  ['黃O誠媽媽', '幫孩子找了一輪，最後選大昇，補了這陣子真心覺得值得給五顆星。環境乾淨明亮，孩子說上課不會想睡。這次段考進步了快二十分，他自己願意唸書了，光這點就夠了。謝謝老師的耐心。'],
+]
+const courseStages = [
+  ['ELEMENTARY', '國小階段', '為孩子建立學科基礎概念，培養良好學習習慣，從小奠定競爭優勢。', ['數學班', '英文班', '升私中數學班', '資優數學班']],
+  ['JUNIOR HIGH', '國中階段', '掌握會考關鍵得分策略，全科穩固提升，助攻理想高中。', ['六升七暑期先修班', '數資班', '數A班', '數私校班', '英資班', '英A班', '國文班', '生物班', '理化班', '九年級會考A++必勝班']],
+  ['SENIOR HIGH', '高中階段', '精準對接學測核心考點，強化邏輯思維與解題能力。', ['數學班', '英文班', '物理班', '化學班']],
+]
+const branches = [
+  ['明湖分校', '國小、國中、高中', '02-2631-0572', '臺北市內湖區康寧路三段189巷11弄1號2樓'],
+  ['信義分校', '國小、國中、高中', '02-6613-0888', '臺北市大安區信義路三段202號6樓'],
+  ['東湖分校', '國小、國中、高中', '02-7709-5599', '臺北市內湖區東湖路15號2樓'],
+  ['新莊分校', '國小、國中、高中', '02-2992-0107', '新北市新莊區中正路164號4樓'],
+  ['永和分校', '國小、國中、高中', '02-2921-1586', '新北市永和區竹林路64號2樓'],
+]
+const activeSlide = ref(0)
+let carouselTimer
+const goToSlide = (index) => { activeSlide.value = index }
+onMounted(() => { carouselTimer = window.setInterval(() => { activeSlide.value = (activeSlide.value + 1) % heroSlides.length }, 5000) })
+onBeforeUnmount(() => window.clearInterval(carouselTimer))
+</script>
+
+<template>
+  <main id="top">
+    <section class="photo-rail" aria-label="大昇校園照片"><article v-for="(slide, index) in heroSlides" :key="slide.title" class="photo-card" :class="{ 'is-active': index === activeSlide }"><img :src="slide.image" :alt="slide.title" /></article><div class="slider-dots" aria-label="校園照片輪播"><button v-for="(slide, index) in heroSlides" :key="slide.title" type="button" :class="{ active: index === activeSlide }" :aria-label="`顯示第 ${index + 1} 張照片`" @click="goToSlide(index)"></button></div></section>
+    <section class="achievement-wall"><div class="achievement-heading"><p>THE DASON DIFFERENCE</p><h2>三十年深耕，數字見證信任</h2></div><div class="achievement-grid"><article class="achievement-card"><p class="achievement-value">30＋</p><h3>年</h3><p>深耕雙北，持續精進</p></article><article class="achievement-card"><p class="achievement-value">5</p><h3>大分校</h3><p>就近服務，交通便利</p></article><article class="achievement-card"><p class="achievement-value is-text">國小・國中・高中</p><h3>全階段教育</h3><p>陪伴每個關鍵學習階段</p></article><article class="achievement-card"><p class="achievement-value">千百</p><h3>學子信賴</h3><p>用專業與陪伴成就未來</p></article></div></section>
+    <section class="section story-section"><div class="story-layout"><div class="story-media"><img :src="educationStoryImage" alt="老師在課堂中陪伴學生學習" /><span class="story-play"></span><span class="story-media-label">DASON EDUCATION STORY</span></div><div class="story-content"><p class="story-eyebrow">OUR EDUCATION STORY</p><h2>看見孩子的可能——大昇的教育故事</h2><p>三十年來，大昇始終秉持「做教育」的精神。我們相信每一個孩子都有無限潛力，也相信真正的教育，是在課業之外還能陪伴孩子成為更好的人。這支影片，帶你走進大昇的日常。</p><span class="story-rule"></span></div></div></section>
+    <section class="section news-section"><div class="section-heading compact"><h2>大昇六大教學特色</h2><p>Teaching features</p></div><div class="news-scroller"><article v-for="(item, index) in teachingMethods" :key="item[0]" class="news-card teaching-card"><span class="teaching-number">{{ String(index + 1).padStart(2, '0') }}</span><div class="news-body"><h3>{{ item[0] }}</h3><p>{{ item[1] }}</p></div></article></div></section>
+    <section class="testimonials-section section"><div class="section-heading testimonials-heading"><p>FAMILY TESTIMONIALS</p><h2>他們說的，比我們說的更真實</h2><strong>每一份肯定，都是我們持續陪伴孩子前進的力量。</strong></div><div class="testimonials-grid"><article v-for="item in testimonials" :key="item[0]" class="testimonial-card"><span class="quote-mark">“</span><div class="testimonial-stars">★★★★★</div><blockquote>{{ item[1] }}</blockquote><footer>{{ item[0] }}</footer></article></div><RouterLink class="testimonials-more" to="/students">查看更多家長推薦 <span>→</span></RouterLink></section>
+    <section class="section courses-section"><div class="section-heading courses-heading"><p>COURSE PROGRAMS</p><h2>全階段專業課程，陪伴每個學習里程碑</h2></div><div class="course-stage-grid"><article v-for="stage in courseStages" :key="stage[1]" class="course-stage-card"><p>{{ stage[0] }}</p><h3>{{ stage[1] }}</h3><span class="course-divider"></span><p class="course-description">{{ stage[2] }}</p><ul><li v-for="course in stage[3]" :key="course">{{ course }}</li></ul></article></div></section>
+    <section class="section branches-section"><div class="section-heading compact lined"><h2>分校資訊</h2><p>就近找到你的大昇</p><strong>大昇在雙北設有五所分校，交通便利、環境優質。無論您在哪，都有一間大昇在您身旁。</strong></div><div class="branch-grid"><article v-for="branch in branches" :key="branch[0]" class="branch-card"><div class="branch-content"><h3>{{ branch[0] }}</h3><ul><li><span>●</span>{{ branch[1] }}</li><li><span>●</span>{{ branch[2] }}</li><li><span>●</span>{{ branch[3] }}</li></ul></div><a :href="`tel:${branch[2].replaceAll('-', '')}`">前往課程 課程資訊 <span>›</span></a></article></div></section>
+  </main>
+  <a class="top-button" href="#top">TOP</a>
+</template>
