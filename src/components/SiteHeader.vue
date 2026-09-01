@@ -1,8 +1,12 @@
+<script setup>
+import logo from '../assets/logo.png'
+</script>
+
 <template>
   <header class="site-header">
     <div class="topbar">
       <RouterLink class="brand" to="/" aria-label="大昇文理補習班首頁">
-        <span class="brand-mark">D</span>
+        <img class="brand-logo" :src="logo" alt="" />
         <strong>大昇文理補習班</strong>
       </RouterLink>
       <p>專營｜國小、國中、高中｜教育、升學、生活陪伴</p>

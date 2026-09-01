@@ -1,4 +1,6 @@
 <script setup>
+import logo from '../assets/logo.png'
+
 const branches = [
   ['明湖分校', '02-2631-0572', '臺北市內湖區康寧路三段189巷11弄1號2樓'],
   ['信義分校', '02-6613-0888', '臺北市大安區信義路三段202號6樓'],
@@ -10,7 +12,7 @@ const branches = [
 
 <template>
   <footer id="contact" class="site-footer">
-    <div class="footer-brand"><span class="brand-mark">D</span><strong>大昇文理補習班</strong></div>
+    <div class="footer-brand"><img class="brand-logo" :src="logo" alt="" /><strong>大昇文理補習班</strong></div>
     <div class="footer-branches">
       <div v-for="branch in branches" :key="branch[0]"><strong>{{ branch[0] }}</strong><span>{{ branch[1] }}</span><small>{{ branch[2] }}</small></div>
     </div>
