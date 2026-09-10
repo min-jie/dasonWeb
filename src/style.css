@@ -131,6 +131,10 @@ ul {
   white-space: nowrap;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .nav-shell {
   justify-content: center;
   gap: clamp(10px, 2.4vw, 34px);
@@ -1596,12 +1600,12 @@ ul {
 
 .home-page .photo-rail {
   width: min(1160px, calc(100% - 44px));
-  height: 500px;
+  height: 420px;
   margin-top: 38px;
 }
 
 .home-page .photo-card {
-  height: 442px;
+  height: 360px;
   border: 2px solid #24743b;
   border-radius: 24px 24px 0 0;
   box-shadow: 13px 14px 0 #9fd89a;
@@ -2713,6 +2717,93 @@ ul {
 
   .line-button {
     min-width: min(100%, 220px);
+  }
+
+  .topbar {
+    position: relative;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-content: center;
+    gap: 5px;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    color: var(--green-deep);
+    background: #edf8eb;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 21px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-shell {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    border-top: 1px solid #dcebd8;
+    border-bottom: 0;
+    transition:
+      max-height 220ms ease,
+      padding 220ms ease,
+      border-color 220ms ease;
+  }
+
+  .nav-shell.is-open {
+    max-height: 520px;
+    padding-top: 10px;
+    padding-bottom: 14px;
+    border-bottom-color: var(--green);
+    border-bottom-width: 4px;
+  }
+
+  .nav-shell a,
+  .nav-shell .home-link {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .home-page .photo-rail {
+    width: calc(100% - 32px);
+    height: 340px;
+    margin-top: 24px;
+  }
+
+  .home-page .photo-card {
+    height: 280px;
+    border-radius: 18px 18px 0 0;
   }
 
   .photo-card {
