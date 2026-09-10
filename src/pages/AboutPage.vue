@@ -19,7 +19,7 @@ const teachingStyles = [
 <template>
   <main class="about-page">
     <section class="section about-hero" aria-labelledby="about-title">
-      <p>ABOUT DASON</p>
+      <p>ABOUT DARSON</p>
       <h1 id="about-title">從一個信念出發——<br />大昇的誕生與使命</h1>
       <strong>每一個孩子，都值得被認真對待。</strong>
     </section>

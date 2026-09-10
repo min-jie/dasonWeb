@@ -17,13 +17,13 @@ const branches = [
     </section>
 
     <section class="section branch-directory" aria-label="大昇分校列表">
-      <div class="branch-directory-heading"><p>FIND YOUR DASON</p><h2>五所分校，陪孩子走好每一步</h2></div>
+      <div class="branch-directory-heading"><p>FIND YOUR DARSON</p><h2>五所分校，陪孩子走好每一步</h2></div>
       <div class="branch-directory-grid">
         <article v-for="(branch, index) in branches" :key="branch.name" class="directory-card" :class="branch.color">
           <div class="directory-index">{{ String(index + 1).padStart(2, '0') }}</div>
           <div class="directory-heading"><span>{{ branch.area }}</span><h3>{{ branch.name }}</h3></div>
           <dl><div><dt>課程</dt><dd>國小・國中・高中</dd></div><div><dt>電話</dt><dd>{{ branch.phone }}</dd></div><div><dt>地址</dt><dd>{{ branch.address }}</dd></div></dl>
-          <a :href="`tel:${branch.phone.replaceAll('-', '')}`">立即聯絡 <span>→</span></a>
+          <a href="https://lin.ee/5TCGxoS" target="_blank" rel="noopener noreferrer">立即聯絡 <span>→</span></a>
         </article>
       </div>
     </section>

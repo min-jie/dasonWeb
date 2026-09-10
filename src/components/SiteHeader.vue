@@ -21,6 +21,7 @@ import logo from '../assets/logo.png'
       <RouterLink to="/courses">專業課程</RouterLink>
       <RouterLink to="/news">最新消息</RouterLink>
       <RouterLink to="/students">大昇學區</RouterLink>
+      <RouterLink to="/achievements">成果見證</RouterLink>
       <RouterLink to="/contact">我要先問</RouterLink>
     </nav>
   </header>

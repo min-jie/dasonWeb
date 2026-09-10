@@ -5,6 +5,7 @@ import BranchesPage from '../pages/BranchesPage.vue'
 import CoursesPage from '../pages/CoursesPage.vue'
 import NewsPage from '../pages/NewsPage.vue'
 import StudentsPage from '../pages/StudentsPage.vue'
+import AchievementsPage from '../pages/AchievementsPage.vue'
 import ContactPage from '../pages/ContactPage.vue'
 
 export default createRouter({
@@ -17,6 +18,7 @@ export default createRouter({
     { path: '/courses', component: CoursesPage },
     { path: '/news', component: NewsPage },
     { path: '/students', component: StudentsPage },
+    { path: '/achievements', component: AchievementsPage },
     { path: '/contact', component: ContactPage },
   ],
 })

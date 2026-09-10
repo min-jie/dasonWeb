@@ -1255,6 +1255,40 @@ ul {
   box-shadow: 0 12px 24px rgba(32, 79, 35, 0.22);
 }
 
+.line-float {
+  position: fixed;
+  right: 52px;
+  bottom: 116px;
+  z-index: 12;
+  display: grid;
+  width: 60px;
+  height: 60px;
+  place-content: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #20be7c;
+  box-shadow: 0 12px 24px rgba(18, 125, 79, 0.25);
+  text-align: center;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.line-float:hover {
+  background: #149d63;
+  transform: translateY(-3px);
+}
+
+.line-float span {
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.line-float small {
+  margin-top: 3px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
 .site-footer {
   padding: 38px clamp(22px, 7vw, 136px) 24px;
   color: #ffffff;
@@ -1747,6 +1781,139 @@ ul {
 
 .faq-section { display: grid; grid-template-columns: .6fr 1.4fr; gap: 60px; max-width: 1100px; margin-inline: auto; background: #eef8ec; }.faq-section dl { margin: 0; }.faq-section dt { padding: 18px 0 8px; border-top: 1px solid #b8d9b4; color: var(--green-deep); font-size: 16px; font-weight: 900; }.faq-section dd { margin: 0; padding-bottom: 18px; color: #536158; font-size: 14px; font-weight: 700; line-height: 1.8; }
 
+.achievements-page { min-height: 100vh; background-color: #f8fdf7; background-image: linear-gradient(rgba(73, 157, 91, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(73, 157, 91, .08) 1px, transparent 1px); background-size: 24px 24px; }
+.achievements-hero { padding-block: 100px 82px; text-align: center; background: rgba(255,255,255,.78); }.achievements-hero > p, .achievement-page-heading > p { color: var(--green); font-size: 11px; font-weight: 900; letter-spacing: .16em; }.achievements-hero h1 { margin-top: 12px; color: var(--green-deep); font-size: clamp(38px, 4vw, 56px); font-weight: 900; }.achievements-hero strong { display: block; margin-top: 20px; color: #536158; font-size: 16px; line-height: 1.8; }
+.achievement-page-heading { max-width: 960px; margin-inline: auto; }.achievement-page-heading h2 { margin-top: 10px; color: var(--green-deep); font-size: clamp(26px, 3vw, 38px); font-weight: 900; line-height: 1.45; }.achievement-page-heading > strong { display: block; margin-top: 16px; color: #536158; font-size: 14px; }
+.achievement-highlight-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 1180px; margin: 38px auto 0; }.achievement-highlight-card { display: flex; min-height: 330px; flex-direction: column; padding: 28px 24px; border: 2px solid #3d9a50; border-radius: 16px; background: #fff; box-shadow: 7px 8px 0 #b9dfb5; }.achievement-highlight-card:nth-child(2) { box-shadow: 7px 8px 0 #b8dfeb; }.achievement-highlight-card:nth-child(3) { box-shadow: 7px 8px 0 #f2c8d0; }.achievement-highlight-card > span { color: var(--green); font-size: 14px; font-weight: 900; letter-spacing: .12em; }.achievement-highlight-card h3 { margin-top: 13px; color: var(--green-deep); font-size: 23px; font-weight: 900; }.achievement-highlight-card h4 { margin-top: 10px; color: #24743b; font-size: 15px; line-height: 1.5; }.achievement-highlight-card > p { margin-top: 14px; color: #536158; font-size: 13px; font-weight: 700; line-height: 1.8; }.achievement-highlight-card a { display: flex; justify-content: space-between; margin-top: auto; padding-top: 20px; color: #24743b; font-size: 13px; font-weight: 900; }.achievement-highlight-card a b { font-size: 19px; }
+.achievement-testimonials { background: rgba(234,246,229,.7); }.achievement-review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; max-width: 1160px; margin: 42px auto 0; }.achievement-review-card { display: flex; min-height: 270px; flex-direction: column; padding: 26px 24px; border: 2px solid #3d9a50; border-radius: 16px; background: #fff; box-shadow: 7px 8px 0 #b9dfb5; }.achievement-review-card:nth-child(3n + 2) { box-shadow: 7px 8px 0 #b8dfeb; }.achievement-review-card:nth-child(3n) { box-shadow: 7px 8px 0 #f2c8d0; }.achievement-review-card blockquote { margin: 18px 0 0; color: #536158; font-size: 14px; font-weight: 700; line-height: 1.85; }.achievement-review-card footer { margin-top: auto; padding-top: 16px; border-top: 1px solid #d9ead5; color: var(--green-deep); font-size: 14px; font-weight: 900; }
+
+/* Keep the column, growth stories and consultation pages on one shared layout. */
+.column-page > .section,
+.achievements-page > .section,
+.contact-page > .section {
+  padding-block: 88px;
+}
+
+.column-page > .column-hero,
+.achievements-page > .achievements-hero,
+.contact-page > .contact-hero {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 88px;
+}
+
+.achievements-page > .achievements-hero h1 {
+  font-size: clamp(32px, 4vw, 50px);
+}
+
+.column-page > .column-grid,
+.achievements-page > .achievement-highlights,
+.achievements-page > .achievement-testimonials,
+.contact-page > .contact-options,
+.contact-page > .faq-section {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.column-grid,
+.achievement-highlight-grid,
+.achievement-review-grid,
+.contact-options {
+  gap: 24px;
+}
+
+.achievement-highlight-grid,
+.achievement-review-grid {
+  max-width: 100%;
+}
+
+.column-card,
+.achievement-highlight-card,
+.achievement-review-card,
+.contact-options article {
+  min-height: 330px;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+/* Shared grid-paper shell for every inner page. */
+.about-page,
+.program-page,
+.news-page,
+.column-page,
+.achievements-page,
+.contact-page,
+.branches-page {
+  min-height: 100vh;
+  background-color: #f9fcff;
+  background-image:
+    linear-gradient(rgba(78, 157, 86, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 157, 86, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(78, 157, 86, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 157, 86, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px, 9px 9px, 9px 9px;
+}
+
+.about-page > .section,
+.program-page > .section,
+.news-page > .section,
+.column-page > .section,
+.achievements-page > .section,
+.contact-page > .section,
+.branches-page > .section {
+  padding-block: 68px;
+}
+
+.about-page > .about-hero,
+.program-page > .program-hero,
+.news-page > .news-page-hero,
+.column-page > .column-hero,
+.achievements-page > .achievements-hero,
+.contact-page > .contact-hero,
+.branches-page > .branches-hero {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: 56px;
+  background: transparent;
+  text-align: center;
+}
+
+.about-page > .about-hero h1,
+.program-page > .program-hero h1,
+.news-page > .news-page-hero h1,
+.column-page > .column-hero h1,
+.achievements-page > .achievements-hero h1,
+.contact-page > .contact-hero h1,
+.branches-page > .branches-hero h1 {
+  font-size: clamp(36px, 4vw, 54px);
+}
+
+.about-page > .about-hero strong,
+.program-page > .program-hero strong,
+.news-page > .news-page-hero strong,
+.column-page > .column-hero strong,
+.achievements-page > .achievements-hero strong,
+.contact-page > .contact-hero strong,
+.branches-page > .branches-hero strong {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.column-page > .column-grid,
+.achievements-page > .achievement-highlights,
+.achievements-page > .achievement-testimonials,
+.contact-page > .contact-options,
+.contact-page > .faq-section {
+  background: transparent;
+}
+
 .teaching-style-card > span {
   color: var(--green);
   font-size: 13px;
@@ -2016,6 +2183,8 @@ ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .achievement-highlight-grid, .achievement-review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   .program-stage { grid-template-columns: 64px 1fr; }
   .program-stage ul, .program-stage a { grid-column: 2; }
   .faq-section { grid-template-columns: 1fr; gap: 28px; }
@@ -2148,6 +2317,27 @@ ul {
     padding-bottom: 58px;
   }
 
+  .column-page > .section,
+  .achievements-page > .section,
+  .contact-page > .section,
+  .about-page > .section,
+  .program-page > .section,
+  .news-page > .section,
+  .branches-page > .section {
+    padding-block: 52px;
+  }
+
+  .column-page > .column-hero,
+  .achievements-page > .achievements-hero,
+  .contact-page > .contact-hero,
+  .about-page > .about-hero,
+  .program-page > .program-hero,
+  .news-page > .news-page-hero,
+  .branches-page > .branches-hero {
+    min-height: 240px;
+    padding-block: 48px;
+  }
+
   .feature-band {
     margin-top: 0;
     padding-top: 58px;
@@ -2188,6 +2378,7 @@ ul {
   }
 
   .news-directory, .column-grid, .contact-options { grid-template-columns: 1fr; }
+  .achievement-highlight-grid, .achievement-review-grid { grid-template-columns: 1fr; }
   .program-stage { grid-template-columns: 1fr; padding: 25px; }
   .program-stage ul, .program-stage a { grid-column: auto; }
 
@@ -2222,5 +2413,12 @@ ul {
   .top-button {
     right: 20px;
     bottom: 20px;
+  }
+
+  .line-float {
+    right: 17px;
+    bottom: 88px;
+    width: 56px;
+    height: 56px;
   }
 }
