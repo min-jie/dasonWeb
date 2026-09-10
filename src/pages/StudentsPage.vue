@@ -1,4 +1,44 @@
 <script setup>
-const columns = [['學習方法', '讀書不是時間堆砌的遊戲，方法對了，事半功倍。收錄教師團隊分享的學習技巧與讀書策略，幫助學生找到最適合自己的學習方式。', ['如何建立有效的讀書計畫', '錯題整理的三個步驟', '從理解到記憶的學習法']], ['升學策略', '面對升學選擇，資訊與策略同樣重要。從會考、學測到志願選填，陪家長與孩子一步步做好準備。', ['會考準備的關鍵節奏', '高中學測的科目規劃', '選擇適合自己的升學路徑']], ['親子教育', '孩子成長的每一段路，都需要理解與陪伴。一起建立更自在的親子溝通，讓學習成為共同前進的旅程。', ['孩子不想讀書時怎麼辦？', '陪伴青春期孩子的對話方式', '建立正向學習動機']]]
+const columns = [
+  [
+    "學習方法",
+    "讀書不是時間堆砌的遊戲，方法對了，事半功倍。收錄教師團隊分享的學習技巧與讀書策略，幫助學生找到最適合自己的學習方式。",
+    ["如何建立有效的讀書計畫", "錯題整理的三個步驟", "從理解到記憶的學習法"],
+  ],
+  [
+    "升學策略",
+    "面對升學選擇，資訊與策略同樣重要。從會考、學測到志願選填，陪家長與孩子一步步做好準備。",
+    ["會考準備的關鍵節奏", "高中學測的科目規劃", "選擇適合自己的升學路徑"],
+  ],
+  [
+    "親子教育",
+    "孩子成長的每一段路，都需要理解與陪伴。一起建立更自在的親子溝通，讓學習成為共同前進的旅程。",
+    ["孩子不想讀書時怎麼辦？", "陪伴青春期孩子的對話方式", "建立正向學習動機"],
+  ],
+];
 </script>
-<template><main class="column-page"><section class="section column-hero"><p>DARSON COLUMN</p><h1>大昇學區</h1><strong>和家長、孩子一起，找到更好的學習方法與方向。</strong></section><section class="section column-grid"><article v-for="(column, index) in columns" :key="column[0]" class="column-card"><span>0{{ index + 1 }}</span><h2>{{ column[0] }}</h2><p>{{ column[1] }}</p><ul><li v-for="item in column[2]" :key="item"><a href="#column">{{ item }} <b>→</b></a></li></ul></article></section></main></template>
+<template>
+  <main class="column-page">
+    <section class="section column-hero">
+      <p>DARSON COLUMN</p>
+      <h1>大昇學區</h1>
+      <strong>和家長、孩子一起，找到更好的學習方法與方向。</strong>
+    </section>
+    <section class="section column-grid">
+      <article
+        v-for="(column, index) in columns"
+        :key="column[0]"
+        class="column-card"
+      >
+        <span>0{{ index + 1 }}</span>
+        <h2>{{ column[0] }}</h2>
+        <p>{{ column[1] }}</p>
+        <ul>
+          <li v-for="item in column[2]" :key="item">
+            <a href="#column">{{ item }} <b>→</b></a>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</template>

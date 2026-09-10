@@ -1,4 +1,61 @@
 <script setup>
-const questions = [['如何選擇適合孩子的班別？', '歡迎透過電話或 LINE 與我們聯繫，我們會依孩子的年級、程度與學習目標，協助安排最適合的課程。'], ['可以安排試聽嗎？', '可以。請先與分校聯繫預約，讓我們為孩子安排合適的試聽時段。'], ['請假或缺課怎麼辦？', '各分校提供補課與學習追蹤安排，協助孩子把學習進度補回來。'], ['課程費用如何詢問？', '不同年級與課程的安排不盡相同，歡迎直接聯絡分校取得完整說明。']]
+const questions = [
+  [
+    "如何選擇適合孩子的班別？",
+    "歡迎透過電話或 LINE 與我們聯繫，我們會依孩子的年級、程度與學習目標，協助安排最適合的課程。",
+  ],
+  [
+    "可以安排試聽嗎？",
+    "可以。請先與分校聯繫預約，讓我們為孩子安排合適的試聽時段。",
+  ],
+  [
+    "請假或缺課怎麼辦？",
+    "各分校提供補課與學習追蹤安排，協助孩子把學習進度補回來。",
+  ],
+  [
+    "課程費用如何詢問？",
+    "不同年級與課程的安排不盡相同，歡迎直接聯絡分校取得完整說明。",
+  ],
+];
 </script>
-<template><main class="contact-page"><section class="section contact-hero"><p>BOOK A CONSULTATION</p><h1>我要先問</h1><strong>讓我們先認識孩子，一起規劃最適合的學習下一步。</strong></section><section class="section contact-options"><article><span>01</span><h2>電話諮詢</h2><p>直接致電鄰近分校，和我們聊聊孩子目前的學習狀況與目標。</p><a href="tel:0226310572">02-2631-0572</a></article><article><span>02</span><h2>加入官方 LINE</h2><p>加入 LINE 後留下孩子的年級與想詢問的課程，我們將盡快回覆。</p><a href="#line">加入 LINE @darson</a></article><article><span>03</span><h2>預約到校諮詢</h2><p>安排合適時間到分校參觀，了解環境、課程規劃與學習支持。</p><RouterLink to="/branches">查看分校資訊</RouterLink></article></section><section class="section faq-section"><div><p>FAQ</p><h2>常見問題</h2></div><dl><template v-for="question in questions" :key="question[0]"><dt>{{ question[0] }}</dt><dd>{{ question[1] }}</dd></template></dl></section></main></template>
+<template>
+  <main class="contact-page">
+    <section class="section contact-hero">
+      <p>BOOK A CONSULTATION</p>
+      <h1>我要先問</h1>
+      <strong>讓我們先認識孩子，一起規劃最適合的學習下一步。</strong>
+    </section>
+    <section class="section contact-options">
+      <article>
+        <span>01</span>
+        <h2>電話諮詢</h2>
+        <p>直接致電鄰近分校，和我們聊聊孩子目前的學習狀況與目標。</p>
+        <a href="tel:0226310572">02-2631-0572</a>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>加入官方 LINE</h2>
+        <p>加入 LINE 後留下孩子的年級與想詢問的課程，我們將盡快回覆。</p>
+        <a href="#line">加入 LINE @darson</a>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>預約到校諮詢</h2>
+        <p>安排合適時間到分校參觀，了解環境、課程規劃與學習支持。</p>
+        <RouterLink to="/branches">查看分校資訊</RouterLink>
+      </article>
+    </section>
+    <section class="section faq-section">
+      <div>
+        <p>FAQ</p>
+        <h2>常見問題</h2>
+      </div>
+      <dl>
+        <template v-for="question in questions" :key="question[0]"
+          ><dt>{{ question[0] }}</dt>
+          <dd>{{ question[1] }}</dd></template
+        >
+      </dl>
+    </section>
+  </main>
+</template>

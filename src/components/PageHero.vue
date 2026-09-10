@@ -1,5 +1,5 @@
 <script setup>
-defineProps({ title: String, eyebrow: String, description: String })
+defineProps({ title: String, eyebrow: String, description: String });
 </script>
 
 <template>
