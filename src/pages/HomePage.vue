@@ -1,5 +1,6 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from "vue";
+import carousel0 from "../assets/carousel_0.png";
 import carousel1 from "../assets/carousel_1.jpg";
 import carousel2 from "../assets/carousel_2.jpg";
 import carousel3 from "../assets/carousel_3.jpg";
@@ -9,6 +10,7 @@ import educationStoryImage from "../assets/education-story.jpg";
 import introductionImage from "../assets/dason-introduction.jpg";
 
 const heroSlides = [
+  { title: "大昇升學榮譽榜", image: carousel0 },
   { title: "課堂實況", image: carousel1 },
   { title: "大昇學習日常", image: carousel2 },
   { title: "校園活動", image: carousel3 },

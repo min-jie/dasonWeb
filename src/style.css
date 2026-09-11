@@ -1600,12 +1600,12 @@ ul {
 
 .home-page .photo-rail {
   width: min(1160px, calc(100% - 44px));
-  height: 420px;
+  height: 620px;
   margin-top: 38px;
 }
 
 .home-page .photo-card {
-  height: 360px;
+  height: 560px;
   border: 2px solid #24743b;
   border-radius: 24px 24px 0 0;
   box-shadow: 13px 14px 0 #9fd89a;
