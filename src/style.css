@@ -351,6 +351,7 @@ ul {
   font-size: clamp(21px, 2.2vw, 29px);
   letter-spacing: 0.02em;
   line-height: 1.35;
+  white-space: nowrap;
 }
 
 .achievement-card h3 {
