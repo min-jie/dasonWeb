@@ -2,6 +2,7 @@
 const branches = [
   {
     name: "明湖分校",
+    id: "minghu",
     area: "內湖",
     phone: "02-2631-0572",
     address: "臺北市內湖區康寧路三段189巷11弄1號2樓",
@@ -9,6 +10,7 @@ const branches = [
   },
   {
     name: "信義分校",
+    id: "xinyi",
     area: "大安",
     phone: "02-6613-0888",
     address: "臺北市大安區信義路三段202號6樓",
@@ -16,6 +18,7 @@ const branches = [
   },
   {
     name: "東湖分校",
+    id: "donghu",
     area: "內湖",
     phone: "02-7709-5599",
     address: "臺北市內湖區東湖路15號2樓",
@@ -23,6 +26,7 @@ const branches = [
   },
   {
     name: "新莊分校",
+    id: "xinzhuang",
     area: "新北",
     phone: "02-2992-0107",
     address: "新北市新莊區中正路164號4樓",
@@ -30,6 +34,7 @@ const branches = [
   },
   {
     name: "永和分校",
+    id: "yonghe",
     area: "新北",
     phone: "02-2921-1586",
     address: "新北市永和區竹林路64號2樓",
@@ -57,6 +62,7 @@ const branches = [
         <article
           v-for="(branch, index) in branches"
           :key="branch.name"
+          :id="branch.id"
           class="directory-card"
           :class="branch.color"
         >

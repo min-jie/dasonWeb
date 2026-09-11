@@ -3,9 +3,23 @@ import { ref } from "vue";
 import logo from "../assets/共用/logo.png";
 
 const isMenuOpen = ref(false);
+const isBranchMenuOpen = ref(false);
+
+const branches = [
+  { name: "明湖分校", id: "minghu" },
+  { name: "信義分校", id: "xinyi" },
+  { name: "東湖分校", id: "donghu" },
+  { name: "新莊分校", id: "xinzhuang" },
+  { name: "永和分校", id: "yonghe" },
+];
 
 const closeMenu = () => {
   isMenuOpen.value = false;
+  isBranchMenuOpen.value = false;
+};
+
+const toggleBranchMenu = () => {
+  isBranchMenuOpen.value = !isBranchMenuOpen.value;
 };
 </script>
 
@@ -43,7 +57,30 @@ const closeMenu = () => {
         </svg>
       </RouterLink>
       <RouterLink to="/about" @click="closeMenu">關於大昇</RouterLink>
-      <RouterLink to="/branches" @click="closeMenu">分校資訊</RouterLink>
+      <div class="nav-dropdown" :class="{ 'is-open': isBranchMenuOpen }">
+        <RouterLink class="nav-dropdown-link" to="/branches" @click="closeMenu"
+          >分校資訊</RouterLink
+        >
+        <button
+          class="nav-dropdown-toggle"
+          type="button"
+          :aria-expanded="isBranchMenuOpen"
+          aria-controls="branch-navigation"
+          :aria-label="isBranchMenuOpen ? '收合分校選單' : '展開分校選單'"
+          @click="toggleBranchMenu"
+        >
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div id="branch-navigation" class="nav-dropdown-menu">
+          <RouterLink
+            v-for="branch in branches"
+            :key="branch.id"
+            :to="`/branches/${branch.id}`"
+            @click="closeMenu"
+            >{{ branch.name }}</RouterLink
+          >
+        </div>
+      </div>
       <RouterLink to="/courses" @click="closeMenu">專業課程</RouterLink>
       <RouterLink to="/news" @click="closeMenu">最新消息</RouterLink>
       <RouterLink to="/students" @click="closeMenu">大昇專欄</RouterLink>
