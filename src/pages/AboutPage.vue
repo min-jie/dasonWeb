@@ -56,9 +56,19 @@ const teamImages = [
 <template>
   <main class="about-page">
     <section class="section about-hero" aria-labelledby="about-title">
-      <p>ABOUT DARSON</p>
-      <h1 id="about-title">從一個信念出發——<br />大昇的誕生與使命</h1>
-      <strong>每一個孩子，都值得被認真對待。</strong>
+      <div class="about-hero-layout">
+        <figure class="about-hero-photo about-hero-photo-left">
+          <img :src="foundingImages[0].src" :alt="foundingImages[0].alt" />
+        </figure>
+        <div class="about-hero-copy">
+          <p>ABOUT DARSON</p>
+          <h1 id="about-title">從一個信念出發——<br />大昇的誕生與使命</h1>
+          <strong>每一個孩子，都值得被認真對待。</strong>
+        </div>
+        <figure class="about-hero-photo about-hero-photo-right">
+          <img :src="foundingImages[1].src" :alt="foundingImages[1].alt" />
+        </figure>
+      </div>
     </section>
 
     <section class="section belief-section" aria-labelledby="belief-title">
@@ -74,21 +84,18 @@ const teamImages = [
         <p>
           三十年來，大昇陪伴了無數孩子走過學習的高峰與低谷，見證他們從迷惘走向自信，從掙扎走向成就。我們深知這份責任不輕，也正因如此，我們持續進步、持續精進。
         </p>
-        <div class="about-photo-strip" aria-label="創辦理念相關照片">
-          <figure v-for="image in foundingImages" :key="image.src">
-            <img :src="image.src" :alt="image.alt" />
-          </figure>
-        </div>
       </div>
-      <div class="belief-panel">
-        <p>OUR CORE BELIEFS</p>
-        <h3>我們的核心信念</h3>
-        <ol>
-          <li v-for="(belief, index) in beliefs" :key="belief">
-            <span>{{ String(index + 1).padStart(2, "0") }}</span
-            >{{ belief }}
-          </li>
-        </ol>
+      <div class="about-side">
+        <div class="belief-panel">
+          <p>OUR CORE BELIEFS</p>
+          <h3>我們的核心信念</h3>
+          <ol>
+            <li v-for="(belief, index) in beliefs" :key="belief">
+              <span>{{ String(index + 1).padStart(2, "0") }}</span
+              >{{ belief }}
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
