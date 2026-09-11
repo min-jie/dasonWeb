@@ -1619,7 +1619,8 @@ ul {
 }
 
 .belief-panel {
-  align-self: start;
+  align-self: stretch;
+  height: 100%;
   padding: 32px;
   border-radius: 18px;
   border: 2px solid #24743b;
@@ -1630,7 +1631,8 @@ ul {
 
 .about-side {
   display: grid;
-  align-content: start;
+  align-self: stretch;
+  align-content: stretch;
   gap: 24px;
 }
 
