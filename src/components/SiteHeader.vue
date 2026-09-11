@@ -30,7 +30,7 @@ const toggleBranchMenu = () => {
         <img class="brand-logo" :src="logo" alt="" />
         <strong>大昇文理補習班</strong>
       </RouterLink>
-      <p>專營｜國小、國中、高中｜教育、升學、生活陪伴</p>
+      <p>高中、國中、國小｜教育、升學、生活陪伴</p>
       <a class="line-button" href="tel:0226310572">預約諮詢</a>
       <button
         class="menu-toggle"
