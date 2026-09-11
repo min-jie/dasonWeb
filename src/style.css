@@ -2831,8 +2831,10 @@ ul {
 }
 
 .branch-detail-hero {
-  display: block;
+  display: flex;
   min-height: 0;
+  flex-direction: column;
+  align-items: center;
   padding-block: 36px 26px;
   text-align: left;
 }
@@ -2864,11 +2866,110 @@ ul {
 }
 
 .branch-detail-hero-banner h1 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25em;
   margin: 0;
   color: #ffffff;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 900;
   letter-spacing: 0.06em;
+}
+
+.branch-detail-hero-banner h1 span {
+  font-size: 1em;
+}
+
+.branch-detail-hero-banner h1 small {
+  color: #d8f0d4;
+  font-size: clamp(18px, 2.3vw, 31px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.branch-message-section {
+  padding-top: 28px;
+}
+
+.branch-message-heading,
+.branch-message-quote {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+}
+
+.branch-message-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #247786;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 900;
+}
+
+.branch-message-heading h2::before {
+  display: block;
+  width: 14px;
+  height: 34px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  background: #7edbd5;
+  content: "";
+}
+
+.branch-message-heading p {
+  margin-top: 28px;
+  color: #247786;
+  font-size: clamp(18px, 2.2vw, 25px);
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+.branch-message-quote {
+  position: relative;
+  margin-top: 30px;
+  padding: clamp(36px, 5vw, 58px) clamp(42px, 7vw, 84px);
+  border: 0;
+  border-radius: 14px;
+  color: #3e727c;
+  background: #e1f7f6;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 2;
+}
+
+.branch-message-quote::before,
+.branch-message-quote::after {
+  position: absolute;
+  color: #9bdad8;
+  font-family: Georgia, serif;
+  font-size: 76px;
+  font-weight: 900;
+  line-height: 0.8;
+}
+
+.branch-message-quote::before {
+  top: 18px;
+  left: 18px;
+  content: "“";
+}
+
+.branch-message-quote::after {
+  right: 18px;
+  bottom: 8px;
+  content: "”";
+}
+
+.branch-message-quote p {
+  margin: 0;
+}
+
+.branch-message-quote footer {
+  margin-top: 18px;
+  color: #247786;
+  font-size: 14px;
+  font-weight: 900;
+  text-align: right;
 }
 
 .branch-detail-layout {
@@ -2878,6 +2979,7 @@ ul {
   gap: clamp(28px, 5vw, 72px);
   width: min(1120px, 100%);
   margin-inline: auto;
+  justify-content: center;
 }
 
 .branch-detail-copy {
@@ -2934,6 +3036,13 @@ ul {
 
 .branch-detail-info a {
   color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #8bc9c5;
+  text-underline-offset: 3px;
+}
+
+.branch-detail-info a:hover {
+  color: #247786;
 }
 
 .branch-detail-contact {
