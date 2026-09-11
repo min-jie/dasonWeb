@@ -1494,6 +1494,34 @@ ul {
   line-height: 1.8;
 }
 
+.about-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.about-photo-strip figure,
+.team-photo-strip figure {
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid #3d9a50;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 6px 7px 0 #b9dfb5;
+}
+
+.about-photo-strip figure {
+  aspect-ratio: 4 / 3;
+}
+
+.about-photo-strip img,
+.team-photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .belief-panel {
   padding: 38px;
   border-radius: 18px;
@@ -1585,6 +1613,26 @@ ul {
   color: #536158;
 }
 
+.team-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1160px;
+  margin: 38px auto 0;
+}
+
+.team-photo-strip figure {
+  aspect-ratio: 4 / 3;
+}
+
+.team-photo-strip figure:nth-child(2) {
+  box-shadow: 6px 7px 0 #b8dfeb;
+}
+
+.team-photo-strip figure:nth-child(3) {
+  box-shadow: 6px 7px 0 #f2c8d0;
+}
+
 .about-grid-spacer {
   height: 92px;
 }
@@ -1612,6 +1660,15 @@ ul {
 }
 
 .home-page .photo-card img {
+  object-position: center;
+}
+
+.home-page .photo-card-ranking {
+  background: #ffffff;
+}
+
+.home-page .photo-card-ranking img {
+  object-fit: contain;
   object-position: center;
 }
 
@@ -2621,6 +2678,10 @@ ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .team-photo-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .branch-directory-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2917,6 +2978,14 @@ ul {
 
   .teaching-style-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-photo-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .team-photo-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .branch-directory-grid {

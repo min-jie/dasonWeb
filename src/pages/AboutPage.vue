@@ -1,4 +1,11 @@
 <script setup>
+import foundingImageOne from "../assets/關於大昇/創辦理念/S__34603031_0.jpg";
+import foundingImageTwo from "../assets/關於大昇/創辦理念/S__34603083_0.jpg";
+import teamImageOne from "../assets/關於大昇/團隊教學風格/S__34603040_0 (1).jpg";
+import teamImageTwo from "../assets/關於大昇/團隊教學風格/S__34603055_0 (1).jpg";
+import teamImageThree from "../assets/關於大昇/團隊教學風格/S__34603071_0 (1).jpg";
+import teamImageFour from "../assets/關於大昇/團隊教學風格/S__34652247_0 (1).jpg";
+
 const beliefs = [
   "學習是一場長跑，方法對了，每個孩子都能跑得更遠。",
   "品行教育與課業教育並重，成績好不如品學兼優。",
@@ -32,6 +39,18 @@ const teachingStyles = [
     "大昇每週提供周考成績單，讓家長即時掌握孩子的學習狀況；同時定期由老師或主任主動致電，與家長溝通孩子的進步情形與後續學習建議。我們相信，家長與補習班之間的信任與協作，是孩子進步最強大的後盾。",
   ],
 ];
+
+const foundingImages = [
+  { src: foundingImageOne, alt: "老師與學生分享學習成果" },
+  { src: foundingImageTwo, alt: "大昇課堂中的師生互動" },
+];
+
+const teamImages = [
+  { src: teamImageOne, alt: "老師陪伴學生學習" },
+  { src: teamImageTwo, alt: "學生專注完成課堂練習" },
+  { src: teamImageThree, alt: "老師與學生一起討論題目" },
+  { src: teamImageFour, alt: "課堂中的教學引導" },
+];
 </script>
 
 <template>
@@ -55,6 +74,11 @@ const teachingStyles = [
         <p>
           三十年來，大昇陪伴了無數孩子走過學習的高峰與低谷，見證他們從迷惘走向自信，從掙扎走向成就。我們深知這份責任不輕，也正因如此，我們持續進步、持續精進。
         </p>
+        <div class="about-photo-strip" aria-label="創辦理念相關照片">
+          <figure v-for="image in foundingImages" :key="image.src">
+            <img :src="image.src" :alt="image.alt" />
+          </figure>
+        </div>
       </div>
       <div class="belief-panel">
         <p>OUR CORE BELIEFS</p>
@@ -78,6 +102,11 @@ const teachingStyles = [
         <span
           >我們的師資團隊由各科資深教師組成，熟悉各階段課綱變化與升學考試趨勢，並長期接受系統性教學培訓，將六大教學特色落實於每一堂課之中。</span
         >
+      </div>
+      <div class="team-photo-strip" aria-label="團隊教學現場照片">
+        <figure v-for="image in teamImages" :key="image.src">
+          <img :src="image.src" :alt="image.alt" />
+        </figure>
       </div>
       <div class="teaching-style-grid">
         <article

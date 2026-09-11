@@ -1,13 +1,13 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import carousel0 from "../assets/carousel_0.png";
-import carousel1 from "../assets/carousel_1.jpg";
-import carousel2 from "../assets/carousel_2.jpg";
-import carousel3 from "../assets/carousel_3.jpg";
-import carousel4 from "../assets/carousel_4.jpg";
-import carousel5 from "../assets/carousel_5.jpg";
-import educationStoryImage from "../assets/education-story.jpg";
-import introductionImage from "../assets/dason-introduction.jpg";
+import carousel0 from "../assets/首頁/carousel_0.png";
+import carousel1 from "../assets/首頁/carousel_1.jpg";
+import carousel2 from "../assets/首頁/carousel_2.jpg";
+import carousel3 from "../assets/首頁/carousel_3.jpg";
+import carousel4 from "../assets/首頁/carousel_4.jpg";
+import carousel5 from "../assets/首頁/carousel_5.jpg";
+import educationStoryImage from "../assets/首頁/education-story.jpg";
+import introductionImage from "../assets/關於大昇/dason-introduction.jpg";
 
 const heroSlides = [
   { title: "大昇升學榮譽榜", image: carousel0 },
@@ -178,7 +178,10 @@ onBeforeUnmount(() => window.clearInterval(carouselTimer));
         v-for="(slide, index) in heroSlides"
         :key="slide.title"
         class="photo-card"
-        :class="{ 'is-active': index === activeSlide }"
+        :class="{
+          'is-active': index === activeSlide,
+          'photo-card-ranking': index === 0,
+        }"
       >
         <img :src="slide.image" :alt="slide.title" />
       </article>

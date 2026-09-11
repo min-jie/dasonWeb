@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import logo from "../assets/logo.png";
+import logo from "../assets/共用/logo.png";
 
 const isMenuOpen = ref(false);
 
