@@ -22,6 +22,7 @@ const branchDefinitions = {
   },
   xinyi: {
     name: "信義分校",
+    titleSuffix: "——在信義，陪伴孩子穩健前進",
     folder: "信義",
     area: "大安",
     phone: "02-6613-0888",
@@ -36,6 +37,7 @@ const branchDefinitions = {
   },
   donghu: {
     name: "東湖分校",
+    titleSuffix: "——扎實學習，陪孩子走得更遠",
     folder: "東湖",
     area: "內湖",
     phone: "02-7709-5599",
@@ -50,6 +52,7 @@ const branchDefinitions = {
   },
   xinzhuang: {
     name: "新莊分校",
+    titleSuffix: "——在地扎根，陪伴新莊孩子成長",
     folder: "新莊",
     area: "新北",
     phone: "02-2992-0107",
@@ -64,6 +67,7 @@ const branchDefinitions = {
   },
   yonghe: {
     name: "永和分校",
+    titleSuffix: "——在陪伴中，讓孩子看見自己的可能",
     folder: "永和",
     area: "新北",
     phone: "02-2921-1586",
