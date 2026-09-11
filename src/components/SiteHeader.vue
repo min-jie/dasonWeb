@@ -4,6 +4,7 @@ import logo from "../assets/共用/logo.png";
 
 const isMenuOpen = ref(false);
 const isBranchMenuOpen = ref(false);
+const isCourseMenuOpen = ref(false);
 
 const branches = [
   { name: "明湖分校", id: "minghu" },
@@ -13,13 +14,24 @@ const branches = [
   { name: "永和分校", id: "yonghe" },
 ];
 
+const courseStages = [
+  { name: "國小課程", id: "elementary" },
+  { name: "國中課程", id: "junior-high" },
+  { name: "高中課程", id: "senior-high" },
+];
+
 const closeMenu = () => {
   isMenuOpen.value = false;
   isBranchMenuOpen.value = false;
+  isCourseMenuOpen.value = false;
 };
 
 const toggleBranchMenu = () => {
   isBranchMenuOpen.value = !isBranchMenuOpen.value;
+};
+
+const toggleCourseMenu = () => {
+  isCourseMenuOpen.value = !isCourseMenuOpen.value;
 };
 </script>
 
@@ -81,7 +93,30 @@ const toggleBranchMenu = () => {
           >
         </div>
       </div>
-      <RouterLink to="/courses" @click="closeMenu">專業課程</RouterLink>
+      <div class="nav-dropdown" :class="{ 'is-open': isCourseMenuOpen }">
+        <RouterLink class="nav-dropdown-link" to="/courses" @click="closeMenu"
+          >專業課程</RouterLink
+        >
+        <button
+          class="nav-dropdown-toggle"
+          type="button"
+          :aria-expanded="isCourseMenuOpen"
+          aria-controls="course-navigation"
+          :aria-label="isCourseMenuOpen ? '收合課程選單' : '展開課程選單'"
+          @click="toggleCourseMenu"
+        >
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div id="course-navigation" class="nav-dropdown-menu">
+          <RouterLink
+            v-for="stage in courseStages"
+            :key="stage.id"
+            :to="`/courses/${stage.id}`"
+            @click="closeMenu"
+            >{{ stage.name }}</RouterLink
+          >
+        </div>
+      </div>
       <RouterLink to="/news" @click="closeMenu">最新消息</RouterLink>
       <RouterLink to="/students" @click="closeMenu">大昇專欄</RouterLink>
       <RouterLink to="/achievements" @click="closeMenu">成果見證</RouterLink>

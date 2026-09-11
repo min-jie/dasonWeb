@@ -42,7 +42,7 @@ const questions = [
         <span>03</span>
         <h2>預約到校諮詢</h2>
         <p>安排合適時間到分校參觀，了解環境、課程規劃與學習支持。</p>
-        <RouterLink to="/branches">查看分校資訊</RouterLink>
+        <RouterLink to="/branches/minghu">查看分校資訊</RouterLink>
       </article>
     </section>
     <section class="section faq-section">

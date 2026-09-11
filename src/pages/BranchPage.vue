@@ -200,7 +200,7 @@ const branchImages = computed(() => {
   <main v-else class="branch-detail-page branch-detail-not-found">
     <section class="section">
       <h1>找不到這所分校</h1>
-      <RouterLink to="/branches">返回分校資訊</RouterLink>
+      <RouterLink to="/branches/minghu">返回分校資訊</RouterLink>
     </section>
   </main>
 </template>

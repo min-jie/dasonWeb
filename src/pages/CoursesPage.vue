@@ -1,6 +1,7 @@
 <script setup>
 const stages = [
   {
+    id: "elementary",
     label: "ELEMENTARY",
     title: "國小課程——打好基礎，從現在開始",
     intro:
@@ -8,6 +9,7 @@ const stages = [
     courses: ["數學班", "英文班", "升私中數學班", "資優數學班"],
   },
   {
+    id: "junior-high",
     label: "JUNIOR HIGH",
     title: "國中課程——全科鞏固，衝刺理想高中",
     intro:
@@ -26,6 +28,7 @@ const stages = [
     ],
   },
   {
+    id: "senior-high",
     label: "SENIOR HIGH",
     title: "高中課程——衝刺學測、鞏固成績、不走冤枉路",
     intro:
@@ -45,6 +48,7 @@ const stages = [
       <article
         v-for="(stage, index) in stages"
         :key="stage.label"
+        :id="stage.id"
         class="program-stage"
       >
         <div class="program-stage-index">0{{ index + 1 }}</div>

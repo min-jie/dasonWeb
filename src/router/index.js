@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import AboutPage from "../pages/AboutPage.vue";
-import BranchesPage from "../pages/BranchesPage.vue";
 import BranchPage from "../pages/BranchPage.vue";
-import CoursesPage from "../pages/CoursesPage.vue";
+import CoursePage from "../pages/CoursePage.vue";
 import NewsPage from "../pages/NewsPage.vue";
 import StudentsPage from "../pages/StudentsPage.vue";
 import AchievementsPage from "../pages/AchievementsPage.vue";
@@ -29,9 +28,10 @@ export default createRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/about", component: AboutPage },
-    { path: "/branches", component: BranchesPage },
+    { path: "/branches", redirect: "/branches/minghu" },
     { path: "/branches/:branchId", component: BranchPage },
-    { path: "/courses", component: CoursesPage },
+    { path: "/courses", redirect: "/courses/elementary" },
+    { path: "/courses/:stageId", component: CoursePage },
     { path: "/news", component: NewsPage },
     { path: "/students", component: StudentsPage },
     { path: "/achievements", component: AchievementsPage },
