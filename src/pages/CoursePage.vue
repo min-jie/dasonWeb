@@ -146,7 +146,11 @@ const courseImages = computed(() => {
   }
 
   return Object.entries(imageModules)
-    .filter(([path]) => path.includes(`/專業課程/${course.value.folder}/`))
+    .filter(
+      ([path]) =>
+        path.includes(`/專業課程/${course.value.folder}/`) &&
+        !path.includes("/專業課程/國小/升私中數學/"),
+    )
     .map(([, source]) => source)
     .slice(0, 4);
 });
@@ -159,8 +163,10 @@ const getCourseImage = (detail) => {
   const folderPath = `/專業課程/${course.value.folder}/${detail.imageFolder}/`;
   const preferredFile =
     courseImageFiles[`${course.value.folder}/${detail.imageFolder}`];
-  const imageEntries = Object.entries(imageModules).filter(([path]) =>
-    path.includes(folderPath),
+  const imageEntries = Object.entries(imageModules).filter(
+    ([path]) =>
+      path.includes(folderPath) &&
+      !path.includes("/專業課程/國小/升私中數學/"),
   );
   const imageEntry =
     imageEntries.find(

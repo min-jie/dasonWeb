@@ -113,10 +113,33 @@ const campaignImageFiles = {
   "a-plus-plus": ["S__34652255_0.jpg", "S__34652277_0.jpg"],
 };
 
+const privateMathImageFiles = [
+  "DARSON課程時間一覽.png",
+  "三科完整複習訓練課程海報.png",
+  "私中備考三階段資訊圖表.png",
+  "大昇五步學習循環 infograph.png",
+];
+
 const campaign = computed(() => campaignDefinitions[route.params.courseId]);
+
+const privateMathVisuals = computed(() => {
+  if (route.params.courseId !== "private-math") return [];
+
+  const imageEntries = Object.entries(imageModules).filter(([path]) =>
+    path.includes("/專業課程/國小/升私中數學/"),
+  );
+
+  return privateMathImageFiles
+    .map(
+      (fileName) =>
+        imageEntries.find(([path]) => path.endsWith(`/${fileName}`))?.[1],
+    )
+    .filter(Boolean);
+});
 
 const campaignImages = computed(() => {
   if (!campaign.value) return [];
+  if (route.params.courseId === "private-math") return [];
 
   const imageEntries = Object.entries(imageModules)
     .filter(([path]) =>
@@ -178,6 +201,24 @@ const campaignImages = computed(() => {
           <p>{{ section.body }}</p>
         </article>
       </div>
+
+      <section
+        v-if="privateMathVisuals.length"
+        class="private-math-course-board"
+        aria-label="升私中數學班課程資訊圖"
+      >
+        <div class="private-math-visual-grid">
+          <figure>
+            <img
+              :src="privateMathVisuals[0]"
+              alt="升私中數學班課程時間一覽"
+            />
+          </figure>
+          <figure v-for="(image, index) in privateMathVisuals.slice(1)" :key="image">
+            <img :src="image" :alt="`升私中數學班學習規劃圖 ${index + 1}`" />
+          </figure>
+        </div>
+      </section>
 
       <div class="campaign-highlights">
         <p class="campaign-section-label">COURSE HIGHLIGHTS</p>
