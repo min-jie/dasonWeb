@@ -235,13 +235,15 @@ const getCourseImage = (detail) => {
               v-if="getCourseImage(detail)"
               class="course-class-photo"
               :class="{
-                'is-centered-photo': [
-                  '英A班',
-                  '英資班',
-                  '數A班',
-                  '國文班',
-                  '六升七暑期先修班',
-                ].includes(detail.name),
+                'is-centered-photo':
+                  ['國小', '高中'].includes(course.folder) ||
+                  [
+                    '英A班',
+                    '英資班',
+                    '數A班',
+                    '國文班',
+                    '六升七暑期先修班',
+                  ].includes(detail.name),
                 'is-top-photo': detail.name === '九年級會考A++必勝班',
               }"
             >
