@@ -5018,8 +5018,32 @@ ul {
   overflow: hidden;
   border: 1px solid #a9d9d7;
   border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 8px 9px 0 rgba(81, 170, 168, 0.2);
+  background: #e9f7f5;
+  box-shadow: 8px 9px 0 #b9e1dc;
+}
+
+.private-math-visual-grid figure:nth-child(1) {
+  border-color: #14999a;
+  background: #e3f5f3;
+  box-shadow: 8px 9px 0 #b5e1dd;
+}
+
+.private-math-visual-grid figure:nth-child(2) {
+  border-color: #efab31;
+  background: #fff2dc;
+  box-shadow: 8px 9px 0 #f4d79c;
+}
+
+.private-math-visual-grid figure:nth-child(3) {
+  border-color: #174c7a;
+  background: #e8f0f8;
+  box-shadow: 8px 9px 0 #c4d8eb;
+}
+
+.private-math-visual-grid figure:nth-child(4) {
+  border-color: #087f62;
+  background: #e4f4ee;
+  box-shadow: 8px 9px 0 #b9ded0;
 }
 
 .private-math-visual-grid img {
