@@ -234,6 +234,16 @@ const getCourseImage = (detail) => {
             <figure
               v-if="getCourseImage(detail)"
               class="course-class-photo"
+              :class="{
+                'is-centered-photo': [
+                  '英A班',
+                  '英資班',
+                  '數A班',
+                  '國文班',
+                  '六升七暑期先修班',
+                ].includes(detail.name),
+                'is-top-photo': detail.name === '九年級會考A++必勝班',
+              }"
             >
               <img
                 :src="getCourseImage(detail)"
