@@ -149,7 +149,7 @@ const courseImages = computed(() => {
     .filter(
       ([path]) =>
         path.includes(`/專業課程/${course.value.folder}/`) &&
-        !path.includes("/專業課程/國小/升私中數學/"),
+        !path.includes("/專業課程/國小/升私中學科班/"),
     )
     .map(([, source]) => source)
     .slice(0, 4);
@@ -166,7 +166,7 @@ const getCourseImage = (detail) => {
   const imageEntries = Object.entries(imageModules).filter(
     ([path]) =>
       path.includes(folderPath) &&
-      !path.includes("/專業課程/國小/升私中數學/"),
+      !path.includes("/專業課程/國小/升私中學科班/"),
   );
   const imageEntry =
     imageEntries.find(

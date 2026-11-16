@@ -86,7 +86,7 @@ const courseStages = [
     "ELEMENTARY",
     "國小階段",
     "為孩子建立學科基礎概念，培養良好學習習慣，從小奠定競爭優勢。",
-    ["數學班", "英文班", "升私中數學班", "資優數學班"],
+    ["數學班", "英文班", "升私中學科班", "資優數學班"],
   ],
   [
     "JUNIOR HIGH",
@@ -113,7 +113,7 @@ const courseStages = [
   ],
 ];
 const campaignCourseIds = {
-  "升私中數學班": "elementary/private-math",
+  "升私中學科班": "elementary/private-math",
   "資優數學班": "elementary/talent-math",
   "六升七暑期先修班": "junior-high/six-to-seven",
   "九年級會考A++必勝班": "junior-high/a-plus-plus",
