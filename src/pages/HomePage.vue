@@ -118,6 +118,14 @@ const campaignCourseIds = {
   "六升七暑期先修班": "junior-high/six-to-seven",
   "九年級會考A++必勝班": "junior-high/a-plus-plus",
 };
+const branchIds = {
+  "明湖分校": "minghu",
+  "信義分校": "xinyi",
+  "東湖分校": "donghu",
+  "新莊分校": "xinzhuang",
+  "永和分校": "yonghe",
+};
+
 const branches = [
   [
     "明湖分校",
@@ -404,12 +412,13 @@ onBeforeUnmount(() => window.clearInterval(carouselTimer));
               <li><span>●</span>{{ branch[3] }}</li>
             </ul>
           </div>
-          <a :href="`tel:${branch[2].replaceAll('-', '')}`"
-            >前往課程 課程資訊 <span>›</span></a
-          >
+          <RouterLink :to="`/branches/${branchIds[branch[0]]}`">
+            查看分校資訊 <span>›</span>
+          </RouterLink>
         </article>
       </div>
     </section>
   </main>
   <a class="top-button" href="#top">TOP</a>
 </template>
+

@@ -32,6 +32,7 @@ const courseImageFolders = {
 
 const courseImageFiles = {
   "國小/數學": "S__34652246_0.jpg",
+  "國小/升私中數學": "IMG_3776.jpg",
   "國小/資優數學": "S__34603048_0.jpg",
 };
 
@@ -163,10 +164,8 @@ const getCourseImage = (detail) => {
   const folderPath = `/專業課程/${course.value.folder}/${detail.imageFolder}/`;
   const preferredFile =
     courseImageFiles[`${course.value.folder}/${detail.imageFolder}`];
-  const imageEntries = Object.entries(imageModules).filter(
-    ([path]) =>
-      path.includes(folderPath) &&
-      !path.includes("/專業課程/國小/升私中數學/"),
+  const imageEntries = Object.entries(imageModules).filter(([path]) =>
+    path.includes(folderPath),
   );
   const imageEntry =
     imageEntries.find(
@@ -245,6 +244,7 @@ const getCourseImage = (detail) => {
                     '六升七暑期先修班',
                   ].includes(detail.name),
                 'is-top-photo': detail.name === '九年級會考A++必勝班',
+                'is-lower-photo': detail.name === '資優數學班',
               }"
             >
               <img
@@ -300,5 +300,8 @@ const getCourseImage = (detail) => {
     </section>
   </main>
 </template>
+
+
+
 
 

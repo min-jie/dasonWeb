@@ -3892,6 +3892,11 @@ ul {
   transform-origin: center top;
 }
 
+.course-class-photo.is-lower-photo img {
+  object-position: center 35%;
+  transform-origin: center 35%;
+}
+
 .course-class-card:hover .course-class-photo img {
   transform: scale(1.04);
 }
@@ -4958,6 +4963,10 @@ ul {
   grid-column: 1 / -1;
 }
 
+.campaign-hero-gallery.is-single figure {
+  min-height: clamp(260px, 31vw, 460px);
+}
+
 .campaign-hero-gallery img {
   width: 100%;
   height: 100%;
@@ -5204,5 +5213,7 @@ ul {
   }
 
 }
+
+
 
 

@@ -130,6 +130,7 @@ const imageModules = import.meta.glob(
 );
 
 const campaignImageFiles = {
+  "private-math": ["IMG_3776.jpg"],
   "six-to-seven": ["S__34603081_0.jpg", "S__34603082_0.jpg"],
   "a-plus-plus": ["S__34652255_0.jpg", "S__34652277_0.jpg"],
 };
@@ -160,7 +161,6 @@ const privateMathVisuals = computed(() => {
 
 const campaignImages = computed(() => {
   if (!campaign.value) return [];
-  if (route.params.courseId === "private-math") return [];
 
   const imageEntries = Object.entries(imageModules)
     .filter(([path]) =>
@@ -200,7 +200,11 @@ const campaignImages = computed(() => {
           <h1 id="campaign-title">{{ campaign.headline }}</h1>
           <strong>{{ campaign.name }}</strong>
         </div>
-        <div v-if="campaignImages.length" class="campaign-hero-gallery">
+        <div
+          v-if="campaignImages.length"
+          class="campaign-hero-gallery"
+          :class="{ 'is-single': campaignImages.length === 1 }"
+        >
           <figure v-for="image in campaignImages" :key="image">
             <img :src="image" :alt="`${campaign.name}課程照片`" />
           </figure>
@@ -280,4 +284,5 @@ const campaignImages = computed(() => {
     </section>
   </main>
 </template>
+
 
