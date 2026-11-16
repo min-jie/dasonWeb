@@ -61,7 +61,7 @@ const courseDefinitions = {
         campaignId: campaignIds["升私中學科班"],
         imageFolder: courseImageFolders["升私中學科班"],
         description:
-          "針對升私中所需的數學能力與題型，系統整理關鍵觀念，搭配循序練習與解題策略，幫助孩子建立面對私中入學考的信心。",
+          "小六升私中，國英數三科一次到位——從複習、模考到國中先修，完整規劃，幫助孩子建立面對私中入學考的信心。",
         audience: "準備升讀私立國中的國小高年級學生",
         features: "重點觀念 × 題型整理 × 升私中策略",
       },
