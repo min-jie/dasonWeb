@@ -5,7 +5,7 @@ import { RouterLink, useRoute } from "vue-router";
 const route = useRoute();
 
 const campaignIds = {
-  "升私中數學班": "private-math",
+  "升私中學科班": "private-math",
   "資優數學班": "talent-math",
   "六升七暑期先修班": "six-to-seven",
   "九年級會考A++必勝班": "a-plus-plus",
@@ -14,7 +14,7 @@ const campaignIds = {
 const courseImageFolders = {
   "數學班": "數學",
   "英文班": "英文",
-  "升私中數學班": "升私中數學",
+  "升私中學科班": "升私中學科班",
   "資優數學班": "資優數學",
   "六升七暑期先修班": "六升七先修",
   "數資班": "數資",
@@ -57,9 +57,9 @@ const courseDefinitions = {
     scheduleNote: "各班別課表安排依各分校而定，歡迎來電或加入LINE洽詢。",
     details: [
       {
-        name: "升私中數學班",
-        campaignId: campaignIds["升私中數學班"],
-        imageFolder: courseImageFolders["升私中數學班"],
+        name: "升私中學科班",
+        campaignId: campaignIds["升私中學科班"],
+        imageFolder: courseImageFolders["升私中學科班"],
         description:
           "針對升私中所需的數學能力與題型，系統整理關鍵觀念，搭配循序練習與解題策略，幫助孩子建立面對私中入學考的信心。",
         audience: "準備升讀私立國中的國小高年級學生",

@@ -8,10 +8,10 @@ const campaignDefinitions = {
   "private-math": {
     stage: "國小課程",
     stageFolder: "國小",
-    folder: "升私中數學",
+    folder: "升私中學科班",
     label: "ELEMENTARY SPECIAL PROGRAM",
     color: "elementary",
-    name: "升私中數學班",
+    name: "升私中學科班",
     headline: "衝刺私立國中入學考，數學是決勝關鍵",
     paragraphs: [
       "私立國中入學考試競爭激烈，數學往往是拉開差距的核心科目。光靠學校教的遠遠不夠——私中考題靈活、題型多變，需要系統性的專項訓練才能在考場上穩定發揮。",
@@ -126,7 +126,7 @@ const privateMathVisuals = computed(() => {
   if (route.params.courseId !== "private-math") return [];
 
   const imageEntries = Object.entries(imageModules).filter(([path]) =>
-    path.includes("/專業課程/國小/升私中數學/"),
+    path.includes("/專業課程/國小/升私中學科班/"),
   );
 
   return privateMathImageFiles
@@ -205,17 +205,17 @@ const campaignImages = computed(() => {
       <section
         v-if="privateMathVisuals.length"
         class="private-math-course-board"
-        aria-label="升私中數學班課程資訊圖"
+        aria-label="升私中學科班課程資訊圖"
       >
         <div class="private-math-visual-grid">
           <figure>
             <img
               :src="privateMathVisuals[0]"
-              alt="升私中數學班課程時間一覽"
+              alt="升私中學科班課程時間一覽"
             />
           </figure>
           <figure v-for="(image, index) in privateMathVisuals.slice(1)" :key="image">
-            <img :src="image" :alt="`升私中數學班學習規劃圖 ${index + 1}`" />
+            <img :src="image" :alt="`升私中學科班學習規劃圖 ${index + 1}`" />
           </figure>
         </div>
       </section>
