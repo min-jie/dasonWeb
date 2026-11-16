@@ -14,7 +14,7 @@ const campaignIds = {
 const courseImageFolders = {
   "數學班": "數學",
   "英文班": "英文",
-  "升私中學科班": "升私中學科班",
+  "升私中學科班": "升私中數學",
   "資優數學班": "資優數學",
   "六升七暑期先修班": "六升七先修",
   "數資班": "數資",
@@ -62,8 +62,8 @@ const courseDefinitions = {
         imageFolder: courseImageFolders["升私中學科班"],
         description:
           "小六升私中，國英數三科一次到位——從複習、模考到國中先修，完整規劃，幫助孩子建立面對私中入學考的信心。",
-        audience: "準備升讀私立國中的國小高年級學生",
-        features: "重點觀念 × 題型整理 × 升私中策略",
+        audience: "有意報考私立國中的小六學生",
+        features: "國英數三科 × 全日模考 × 國中數學先修",
       },
       {
         name: "資優數學班",
@@ -149,7 +149,7 @@ const courseImages = computed(() => {
     .filter(
       ([path]) =>
         path.includes(`/專業課程/${course.value.folder}/`) &&
-        !path.includes("/專業課程/國小/升私中學科班/"),
+        !path.includes("/專業課程/國小/升私中數學/"),
     )
     .map(([, source]) => source)
     .slice(0, 4);
@@ -166,7 +166,7 @@ const getCourseImage = (detail) => {
   const imageEntries = Object.entries(imageModules).filter(
     ([path]) =>
       path.includes(folderPath) &&
-      !path.includes("/專業課程/國小/升私中學科班/"),
+      !path.includes("/專業課程/國小/升私中數學/"),
   );
   const imageEntry =
     imageEntries.find(
@@ -300,3 +300,5 @@ const getCourseImage = (detail) => {
     </section>
   </main>
 </template>
+
+
